@@ -5,19 +5,31 @@ block variables
   - var description = 'Description for Webpack + Pug';
   - var pageClass = 'index-page';
 
+
 block content
-  section
-    .container
-      +item('item title', 'item descr')
-      +item('item title', 'item descr')
-      +item('item title', 'item descr')
-  example-component
+  section.container
+    nav.col-lg-12.navigation.d-flex
+      - let items = ['Главная','Пользователям','Кэшбек','Для бизнеса','Правила','Контакты']
+      - let links = ['']
+      ul.d-flex.col-lg-7.justify-content-between.pt-3.pb-3
+        each val in items
+          li.text-white.d-flex.align-items-center
+            +link('/foo', val)(class="text-white")
+      div.row.d-flex.col-lg-5.no-gutters.pt-2.pb-2.pr-0.input-border-left
+        div.col-lg-9.search
+         input(class="col-lg-9 search__input" placeholder="Что Вы хотите найти?")/
+         button.btn.text-black.dropdown-toggle.col-lg-3.btn-border-left Везде
+        div.col-lg-3.d-flex
+          button.search__button.col.ml-3.font-weight-bold Найти
+  section.container.d-flex.pt-0.brd-bottom.flex-wrap
+    - let imageDescriptions = ['Для нее','Для него','Детям','Для дома','Техника','Красота','Услуги','Туризм','Магазины','Поесть','Для авто','Обучение']
+    div.col-lg-12.d-flex
+      each val, index in imageDescriptions
+           +categories(index, val)
+      include ../includes/modules/categories-dropdown
 
 
 block script
   script(type='text/javascript').
-    const foo = true;
-    let bar = function() {};
-    if (foo) {
-    bar(1 + 5)
-    }
+
+

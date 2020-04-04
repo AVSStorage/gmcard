@@ -1,0 +1,26 @@
+-
+ let categories1 = [
+  {name: "Грузоперевозки", count: 1929},
+  {name: "Фото, видео, аудио", count: 1200},
+  {name: "Свадьба и торжества", count:985},
+ {name: "Все для красоты",count: 136},
+ {name: "Врачи", count: 789},
+ {name: "ИТ-Фрилансеры", count: 657},
+ {name: "Ремонт и стройка", count: 369},
+ {name: "Для авто",count: 321},
+ {name: "Бухгалтеры и юристы", count:129},
+ {name: "Ветеринары", count: 225},
+ {name: "Автоконструкторы",count:980},
+ {name: "Домашний персонал", count: 412},
+ {name: "Уборка", count: 302}
+  ]
+div.col-lg-12.category__main.row.no-gutters.p-0
+    div.col-lg-4.p-0.category__wrapper
+        each val in categories1
+            +category(val.name, val.count)
+    div.col-lg-4.p-0.category__wrapper
+        each val in categories1
+            +category(val.name, val.count)
+    div.col-lg-4.p-0.category__wrapper
+        each val in categories1
+            +category(val.name, val.count)

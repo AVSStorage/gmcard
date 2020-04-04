@@ -1,3 +1,30 @@
 header
-  .container
-    span header
+  .container.main__nav
+    nav.navbar.navbar-expand-md.navbar-light.row.no-gutters.pt-2.pb-2.pl-0.pr-0
+      button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      div(class="collapse navbar-collapse no-gutters" id="navbarTogglerDemo03")
+
+        div(class="col col-lg-3 d-flex align-items-center")
+          img(class='button col-lg-2 pl-0' src='/assets/img/logo_main.png')/
+          a(class="col-lg-3 font-weight-bold text-white p-0 text-big" href='google.com') Скидки
+          button.btn.text-white.dropdown-toggle.col-lg-7.brd-left.brd-left--custom Все сервисы GM
+        div.d-none
+          div(class="col col-lg-3 ml-lg-auto d-flex align-items-center")
+            button.btn.text-white.col-lg-4 Вход
+            button.btn.btn-custom.col-lg-5.font-weight-bold.text-white Регистрация
+            img(class='col' src='/assets/img/unauthorize.png')/
+        div(class="col col-lg-6 ml-lg-auto d-flex")
+          a(class="col-lg-3 text-white p-0 align-self-center text-center" href='google.com') Личный кабинет
+          a(class="btn btn-custom col-lg-3 font-weight-bold text-white mr-4 mt-2 mb-2 justify-content-center d-flex align-items-center" href='google.com') Запустить акцию
+          a(class="col-lg-1 text-white d-flex align-items-center ml-2 mr-2 justify-content-center p-0 brd-left" href='google.com')
+            img(class='button col-lg-12' src='/assets/img/chat.png' height="20")/
+            span.badge.badge-pill.badge-danger.badge-icon 25
+          a(class="col-lg-1 text-white d-flex align-items-center ml-2 mr-2  justify-content-center p-0 brd-left" href='google.com')
+            img(class='button col-lg-11' src='/assets/img/flag.png' height="20")/
+            span.badge.badge-pill.badge-danger.badge-icon 3
+          a(class="col-lg-1 text-white d-flex align-items-center ml-2 mr-2  justify-content-center p-0 brd-left" href='google.com')
+            img(class='button col-lg-12' src='/assets/img/user.png' height="20")/
+            span.badge.badge-pill.badge-danger.badge-icon 5
+          a(class="col-lg-1 text-white d-flex align-items-center ml-3 mr-2  justify-content-center p-0 brd-left" href='google.com')
+            img(class='button col p-0 ' src='/assets/img/avatar.png' height="50")/

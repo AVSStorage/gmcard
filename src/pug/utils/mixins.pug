@@ -2,3 +2,19 @@ mixin item(title, descr)
   .item
     h2.item-title= title
     p.item-descr= descr
+
+mixin link(href, name)
+  //- attributes == {class: "btn"}
+  a(class!=attributes.class href=href)= name
+
+mixin categories(src,text)
+  div.col-lg-1.d-flex.flex-column.justify-content-between.align-items-center.category__link
+    div.col-lg-8.d-flex.flex-column.justify-content-center.align-items-center.p-0
+      img(src=`/assets/img/cat${src + 1}.png` class="w-100")/
+    p.text-center.text-white.font-weight-bold= text
+    div.arrow-up
+
+mixin category(name, count)
+  div.col-lg-12.d-flex.justify-content-between.pt-2.pb-2.category
+    a(href="#" class="category__name")= name
+    span.font-weight-bold.category__count= count
