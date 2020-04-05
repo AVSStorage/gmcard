@@ -1,0 +1,25 @@
+-
+    let cards = [
+    {type: 1, discount: 50, blocked: false, src: "/assets/img/card.png", text:"Скидка на все модели AirMax до 50% в Магазине StoreShop", sale_text: 'Скидка до 50%', sale_src: '/assets/img/discount.png',special: false,special_info:false},
+    {type: 2, discount: false, blocked: false, src: "/assets/img/card2.png", text:"Полный курс обучения вождению авто...", sale_text: 'Купон на скидку 30%', sale_src: '/assets/img/discount2.png',special: false,special_info:false},
+    {type: 3, discount: false, blocked: false,src: "/assets/img/card3.png", text:"7 дней проживания с питанием в санатории Солнечный в...", sale_text: 'Скидка до 14000', sale_src: '/assets/img/discount.png',special: false,special_info:false},
+    {type: 4, discount: false, blocked: false, src: "/assets/img/card4.png", text:"Празнование любого торжества(юбилей, банкет, кор..)", sale_text: 'Подарок за покупку', sale_src: '/assets/img/discount3.png',special: false,special_info:false},
+    {type: 5, discount: false, blocked: false,src: "/assets/img/card5.png", text:"Возвращаем деньги за покупку телефона Honor V10", sale_text: 'Кешбек 10%', sale_src: '/assets/img/discount4.png',special: true, special_info: 3000},
+    {type: 6, discount: false, blocked: false, src: "/assets/img/card6.png", text:"При покупке двух часов третьи в подарок от производителя", sale_text: 'Акция 2 + 1', sale_src: '/assets/img/discount5.png',special: true,special_info:false},
+    {type: 1, discount: 80, blocked: false, src: "/assets/img/card7.png", text:"Аренда Porshe 11 на неделю со скидкой 80% от автоцентр...", sale_text: 'Скидка до 80%', sale_src: '/assets/img/discount.png',special: false,special_info:false},
+    {type: 7, discount: false, blocked: false,src: "/assets/img/card8.png", text:"Конкурс на лучший дизайн одеждый для швей", sale_text: 'Конкурс', sale_src: '/assets/img/discount6.png', special: false,special_info:false},
+    {type: 8, discount: false, blocked: false, src: "/assets/img/card9.png", text:"При покупке двух часов третьи в подарок от производителя 'Sw...", sale_text: 'Акция 1 + 1', sale_src: '/assets/img/discount7.png',special: false,special_info:false},
+    {type: 2, discount: false, blocked: {start: "12:00", end: "18:00"}, src: "/assets/img/card10.png", text:"Полный курс обучения вождению автомобиля в авто...", sale_text: 'Купон на скидку 30%', sale_src: '/assets/img/discount2.png',special: false,special_info:false},
+    {type: 1, discount: 20, blocked: false,src: "/assets/img/card11.png", text:"7 дней проживания с питанием в санаторий Солнечный в...", sale_text: 'Скидка до 20%', sale_src: '/assets/img/discount.png',special: false,special_info:false},
+    {type: 4, discount: false, blocked: false, src: "/assets/img/card12.png", text:"Празнование любого торжества(юбилей, банкет, кор..)", sale_text: 'Подарок за покупку', sale_src: '/assets/img/discount3.png',special: false,special_info:false},
+    {type: 5, discount: false, blocked: false, src: "/assets/img/card5.png", text:"Возвращаем деньги за покупку телефона Honor V10", sale_text: 'Кешбек 10%', sale_src: '/assets/img/discount4.png',special: true, special_info: false},
+    {type: 6, discount: false,blocked: false, src: "/assets/img/card6.png", text:"При покупке двух часов третьи в подарок от производителя", sale_text: 'Акция 2 + 1', sale_src: '/assets/img/discount5.png',special: true,special_info:5000},
+    {type: 1, discount: 50, blocked: {start: "10:00", end: "15:00"}, src: "/assets/img/card3.png", text:"7 дней проживания с питанием в санатории Солнечный в...", sale_text: 'Скидка до 50%', sale_src: '/assets/img/discount.png',special: false,special_info:false},
+    ]
+- function paginate(array, page_size, page_number) {return array.slice((page_number - 1) * page_size, page_number * page_size);};
+- cards = paginate(cards, 12, 1);
+
+
+div.col-lg-12.card__wrapper.mt-5.pl-2.pr-2
+    each val, index in cards
+        +card(val.src,val.text,val.sale_text,val.sale_src, val.type, val.discount, val.special, val.special_info, val.blocked)

@@ -8,13 +8,53 @@ mixin link(href, name)
   a(class!=attributes.class href=href)= name
 
 mixin categories(src,text)
-  div.col-lg-1.d-flex.flex-column.justify-content-between.align-items-center.category__link
+  div(class="col-lg-1 d-flex flex-column justify-content-between align-items-center category__link" data-index=src + 1)
     div.col-lg-8.d-flex.flex-column.justify-content-center.align-items-center.p-0
       img(src=`/assets/img/cat${src + 1}.png` class="w-100")/
     p.text-center.text-white.font-weight-bold= text
     div.arrow-up
 
-mixin category(name, count)
-  div.col-lg-12.d-flex.justify-content-between.pt-2.pb-2.category
+mixin category(name, count, index, sub)
+  div(class="col-lg-12 d-flex justify-content-between pt-2 pb-2 category" data-index=index data-sub=sub)
     a(href="#" class="category__name")= name
     span.font-weight-bold.category__count= count
+
+mixin loop_categories(categories, subcategories)
+  - let indexOfCat = 0
+  - let catLen = categories.length
+    while indexOfCat < catLen
+      div(class="col-lg-4 p-0 category__wrapper d-none category__wrapper--sub" data-sub=1 data-index=indexOfCat++)
+        each val, index in categories
+          +category(val, 3, index + 1, 1)
+      div(class="col-lg-4 p-0 category__wrapper d-none category__wrapper--sub" data-sub=2 data-index=indexOfCat)
+        each val, index in subcategories
+          +category(val, 5, index + 1, 2)
+
+mixin card(src, text, sale_text, sale_src, type, discount, special, special_info, blocked)
+  article(class=`card pl-0 ${blocked ? "card--blocked" : ''} pr-0 mr-2` style="background-image:url('"+ src + "')")
+    if special
+      if special_info
+        div.card__special
+          img(src="/assets/img/sale1.png" class="card__special-image")
+          span от #{special_info} ₽
+      else
+        div.card__special
+          img(src="/assets/img/sale1.png" class="card__special-image")
+    if type !== 1
+      img(src=sale_src class="card__sale-type")
+    else
+      div.card__sale-type.card__discount
+        p.text-white.font-italic.discount-text
+          span скидка до
+          span.font-weight-bold.discount-num.text-white.font-normal= discount
+          |%
+    p.p-4.card__text= text
+    div.pl-4.pr-4.pt-3.pb-3.d-flex.align-items-center.card__sale.justify-content-between
+      span.font-weight-bold.card__text.card__text--big= sale_text
+      img(src=sale_src class="card__sale-img")
+    div.card__blocked
+      img(src="/assets/img/clock.png")
+      if blocked
+        p.mt-3 Акция недоступна с #{blocked.start} до #{blocked.end}
+      else
+        p.mt-3 Акция недоступна с 12:00 до 18:00
