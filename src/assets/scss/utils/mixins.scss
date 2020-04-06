@@ -33,3 +33,30 @@
     height: $heigth;
   }
 }
+
+@mixin button-yellow(){
+  border-radius: 10px;
+  background-color: #f9d914;
+  color: #775418;
+}
+
+@mixin select() {
+  background-color: rgba(50,50,48,0);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  color: #fff;
+
+  .list {
+    background-color: rgba(50,50,48,0);
+    width:100%;
+  }
+
+  .list .option.selected {
+    background-color: #f9d914;
+    color:#000;
+  }
+
+  .list .option:hover {
+    background-color:  #212529;
+  }
+}

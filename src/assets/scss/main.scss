@@ -221,6 +221,8 @@ section, .section {
   border-top: 12px solid #f3ea22;
   position: absolute;
   top: 100px;
+  z-index: 1000;
+  background-color: white;
 
 }
 
@@ -367,24 +369,7 @@ section, .section {
 
 .filter__select {
   width: 202px;
-  background-color: rgba(50,50,48,0);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 10px;
-  color: #fff;
-
-  .list {
-    background-color: rgba(50,50,48,0);
-    width:100%;
-  }
-
-  .list .option.selected {
-    background-color: #f9d914;
-    color:#000;
-  }
-
-  .list .option:hover {
-    background-color:  #212529;
-  }
+  @include select();
 }
 
 .discount-num {
@@ -402,6 +387,9 @@ section, .section {
   align-items: center;
 }
 
+.bg-navy {
+  background-color: #101121;
+}
 .cards__title {
   font-size: 34px;
 }
@@ -414,6 +402,16 @@ section, .section {
   filter: drop-shadow(0px 34px 29.5px rgba(0,0,0,0.22));
   border-radius: 20px;
 
+  &__button {
+    @include button-yellow();
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+    margin-top: 8%;
+    min-width: 40%;
+  }
   .card__blocked {
     display: none;
     position: absolute;
@@ -507,6 +505,165 @@ section, .section {
     }
     &-img {
       width: 20%;
+    }
+  }
+}
+
+.social {
+  display: flex;
+
+
+  &__icon {
+    font-size: 15px;
+    color: #595b68;
+  }
+  &__item {
+    margin-right: 10px;
+  }
+  &__link {
+    display: block;
+    color: #fff;
+    padding: 10px 35px;
+    border-radius: 10px;
+    font-size: 18px;
+    background-color: rgba(243,224,58,0);
+    border: 1px solid hsla(0,0%,100%,.2);
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    &--vk {
+      background-image: url("../../assets/img/vk.png");
+    }
+
+    &--facebook {
+      background-image: url("../../assets/img/facebook.png");
+    }
+
+    &--instagram {
+      background-image: url("../../assets/img/instagram.png");
+      min-height: 46px;
+      width: 100%;
+      padding: 20px;
+      max-width: 50px;
+      background-position: center;
+    }
+  }
+}
+
+.footer {
+  &__wrapper {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    background-image: url("../../assets/img/footer_image.png");
+    background-repeat: no-repeat;
+    background-position: 7% bottom;
+    padding-top: 5%;
+
+  }
+
+  &__links {
+
+    display: flex;
+    flex-wrap: wrap;
+    a {
+      font-size: 14px;
+      line-height: 15px;
+      margin-left: 30px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-left: 30px;
+      border-left: 1px solid rgba(255,255,255,0.1);
+      font-weight: bold;
+      color: #f9d914;
+
+      &:first-child {
+        border: none;
+      }
+    }
+  }
+
+  &__city {
+    .filter__select {
+      width: 100px;
+    }
+    .list {
+      bottom: 100%;
+      top:unset;
+    }
+  }
+  &__copyright {
+    span {
+      font-size: 16px;
+      line-height: 15px;
+      color: #595b68;
+    }
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+  }
+
+  &__info {
+    display: flex;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-content: space-between;
+
+
+    &-link {
+      font-size: 18px;
+      color: #595b68;
+    }
+  }
+
+  &__partners {
+    display: flex;
+    flex-wrap: wrap;
+
+    .footer__title {
+      width: 100%;
+    }
+  }
+
+  &__partner {
+    justify-content: space-between;
+  }
+
+  &__block {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+  }
+
+  &__title {
+    color: #595b68;
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 15px;
+    font-weight: bold;
+  }
+
+
+  &__application {
+    width: 143px;
+    height: 54px;
+    background-color: #000000;
+    border-radius: 10px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    &--appstore {
+      background-image: url("../../assets/img/app_store.png");
+
+    }
+
+    &--google {
+      background-image: url("../../assets/img/google_play.png");
     }
   }
 }

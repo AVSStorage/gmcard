@@ -26,7 +26,7 @@ block content
     div.col-lg-12.d-flex.p-0
       each val, index in imageDescriptions
            +categories(index, val)
-      //include ../includes/modules/categories-dropdown
+      include ../includes/modules/categories-dropdown
   section.container.d-flex.pt-0.flex-wrap.mt-4
     button.slider-arrow.slider-arrow--prev.d-flex.align-items-center
       i.material-icons.text-brown keyboard_arrow_left
@@ -54,9 +54,13 @@ block content
           option(checked="" value="1") Все акции
           option(checked="" value="2") 1 + 1
           option(checked="" value="3") Подарок за покупку
-    section.container.pl-2
-      h1.font-weight-bold.text-white.cards__title Популярные акции
-      include ../includes/modules/cards
+  section.container.pl-2
+    h1.font-weight-bold.text-white.cards__title Популярные акции
+    include ../includes/modules/cards
+    button.btn.card__button.font-weight-bold.pt-3.pb-3
+      | Посмотреть еще
+      i.material-icons.ml-2 cached
+
 
 
 block script
