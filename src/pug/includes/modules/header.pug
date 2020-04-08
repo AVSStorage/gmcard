@@ -1,30 +1,62 @@
-header
-  .container.main__nav
+header.main__nav
+  .container
     nav.navbar.navbar-expand-md.navbar-light.row.no-gutters.pt-2.pb-2.pl-0.pr-0
-      button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation")
-        span.navbar-toggler-icon
-      div(class="collapse navbar-collapse no-gutters" id="navbarTogglerDemo03")
 
-        div(class="col col-lg-3 d-flex align-items-center")
-          img(class='button col-lg-2 pl-0' src='/assets/img/logo_main.png')/
-          a(class="col-lg-3 font-weight-bold text-white p-0 text-big" href='google.com') Скидки
-          button.btn.text-white.dropdown-toggle.col-lg-7.brd-left.brd-left--custom Все сервисы GM
-        div.d-none
-          div(class="col col-lg-3 ml-lg-auto d-flex align-items-center")
-            button.btn.text-white.col-lg-4 Вход
-            button.btn.btn-custom.col-lg-5.font-weight-bold.text-white Регистрация
-            img(class='col' src='/assets/img/unauthorize.png')/
-        div(class="col col-lg-6 ml-lg-auto d-flex")
-          a(class="col-lg-3 text-white p-0 align-self-center text-center" href='google.com') Личный кабинет
-          a(class="btn btn-custom col-lg-3 font-weight-bold text-white mr-4 mt-2 mb-2 justify-content-center d-flex align-items-center" href='google.com') Запустить акцию
-          a(class="col-lg-1 text-white d-flex align-items-center ml-2 mr-2 justify-content-center p-0 brd-left" href='google.com')
-            img(class='button col-lg-12' src='/assets/img/chat.png' height="20")/
-            span.badge.badge-pill.badge-danger.badge-icon 25
-          a(class="col-lg-1 text-white d-flex align-items-center ml-2 mr-2  justify-content-center p-0 brd-left" href='google.com')
-            img(class='button col-lg-11' src='/assets/img/flag.png' height="20")/
-            span.badge.badge-pill.badge-danger.badge-icon 3
-          a(class="col-lg-1 text-white d-flex align-items-center ml-2 mr-2  justify-content-center p-0 brd-left" href='google.com')
-            img(class='button col-lg-12' src='/assets/img/user.png' height="20")/
-            span.badge.badge-pill.badge-danger.badge-icon 5
-          a(class="col-lg-1 text-white d-flex align-items-center ml-3 mr-2  justify-content-center p-0 brd-left" href='google.com')
-            img(class='button col p-0 ' src='/assets/img/avatar.png' height="50")/
+
+        div(class="col-10 col-md-4 col-xl-3 d-flex align-items-center")
+          img(class='button col-1 col-lg-2 pl-0' src='/assets/img/logo_main.png')/
+          a(class="col-4 col-lg-3 font-weight-bold text-white p-0 text-big" href='google.com') Скидки
+          button.col-7.btn.text-white.dropdown-toggle.col-lg-7.brd-left.brd-left--custom Все сервисы GM
+        button(class="navbar-toggler col-2" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation")
+          i.material-icons.text-white menu
+        div(class="collapse navbar-collapse no-gutters")
+          div.d-none
+            div(class="col col-lg-3 ml-lg-auto d-flex align-items-center")
+                button.btn.text-white.col-lg-4 Вход
+                button(class="btn btn-custom col-lg-5 font-weight-bold text-white" id="registrate") Регистрация
+                img(class='col' src='/assets/img/unauthorize.png')/
+            div.user.col-lg-4.p-4.user--unauth
+              span.user__text.font-weight-bold.user__text--big.mb-3 Зарегистрироваться
+              p.user__text.user__text--big
+              | У нас единая система сервисов, а т.е., для всех сервисов системы GM действует 1 логин и 1 пароль, которые вы указываете при регистрации в системе GM, на главном ресурсе - www.gm1lp.ru
+              div.user__wrapper
+                a(href="#" class="user__register") Регистрация
+                a(href="" class="user__link") Пройду позже
+
+        div(class="col d-none  col-md-8 col-xl-7 ml-md-0 ml-xl-auto d-md-flex justify-content-end")
+              a(class="col-md-2 col-xl-3 link pr-md-1 text-white p-xl-0 align-self-center text-center" href='google.com') Личный кабинет
+              a(class="btn btn-custom col-md-4 col-lg-4 col-xl-3 font-weight-bold text-white mr-4 mt-2 mb-2 justify-content-center d-flex align-items-center" href='google.com') Запустить акцию
+              a(class="col-md-1 text-white d-flex align-items-center ml-2 mr-2 justify-content-center p-0 brd-left" href='google.com')
+                img(class='button col-lg-12' src='/assets/img/chat.png' height="20")/
+                span.badge.badge-pill.badge-danger.badge-icon 25
+              a(class="col-md-1 text-white d-flex align-items-center ml-2 mr-2  justify-content-center p-0 brd-left" href='google.com')
+                img(class='button col-lg-11' src='/assets/img/flag.png' height="20")/
+                span.badge.badge-pill.badge-danger.badge-icon 3
+              a(class="col-md-1 text-white d-flex align-items-center ml-2 mr-2  justify-content-center p-0 brd-left" href='google.com')
+                img(class='button col-lg-12' src='/assets/img/user.png' height="20")/
+                span.badge.badge-pill.badge-danger.badge-icon 5
+              div.col-md-1.d-flex.align-items-center.ml-3.mr-2.justify-content-center.p-0.brd-left
+                button(class="btn text-white p-0" id="profile-button")
+                  img(class='button col p-0 ' src='/assets/img/avatar.png' height="50")/
+              div.user.col-lg-10
+                div.user__header
+                  img(src='/assets/img/avatar.png' width="39" height="39")/
+                  span.user__text.font-weight-bold Дмитрий Шошин
+                  a(href="#" class="user__link") Выйти
+                div.user__info.user__info--profile
+                  span.user__text Профиль
+                  a(href="#" class="user__link") Редактировать
+                div.user__info.user__info--saving
+                  span.user__text Баланс
+                  span.user__text.user__text--accent 12564 руб.
+                  a(href="#" class="user__link") Оперировать
+                div.user__info.user__info--account
+                  span.user__text Учетная запись
+                  span.user__text.user__text--accent Стандарт
+                  a(href="#" class="user__link") Повысить
+                div.user__info.user__info--settings
+                  span.user__text Настройки и конфиденциальность
+                  a(href="#" class="user__link") Проверить
+                div.user__info.user__info--help
+                  span.user__text Справка
+                  a(href="#" class="user__link") Получить помощь

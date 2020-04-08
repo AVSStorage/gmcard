@@ -35,40 +35,40 @@ $(document).ready(function() {
 
     })
 
-    let categories = document.querySelectorAll('.category');
-
-    Array.from(categories).forEach((category) => {
-        $(category).hover(function (evt) {
-            let index = evt.currentTarget.dataset.index;
-            let subIndex = Number(evt.currentTarget.dataset.sub) + 1;
-
-            // if (Number(evt.currentTarget.dataset.sub) === 0){
-            //     $(evt.currentTarget).parents('.category__main').find('.category__wrapper[data-sub!="' + subIndex + '"]').each(function () {
-            //         $(this).addClass('d-none');
-            //     })
-            // }
-            if (index) {
-                // $(evt.currentTarget).parents('.category__main').find('.category__wrapper[data-sub!="0"]').addClass('d-none');
-
-                const block = $(evt.currentTarget).parents('.category__main').find('.category__wrapper[data-index="' + index + '"][data-sub="' + subIndex + '"]');
-                block.removeClass('d-none');
-            }
-        }, function (evt) {
-
-            let subIndex = Number(evt.currentTarget.dataset.sub);
-            console.log(subIndex);
-            // const block = $(evt.currentTarget).parents('.category__main').find('.category__wrapper[data-sub="' + subIndex + 1 + '"]');
-            // if (subIndex === 1){
-            const block = $(evt.currentTarget).parents('.category__main').find('.category__wrapper[data-sub="' + subIndex + 1 + '"]');
-            console.log(block);
-            // if (subIndex > 0 && !Array.from(block).includes(evt.target.parentElement)) {
-            block.each(function () {
-                $(this).addClass('d-none');
-            })
-            //    }
-            //  }
-        })
-    })
+    // let categories = document.querySelectorAll('.category');
+    //
+    // Array.from(categories).forEach((category) => {
+    //     $(category).hover(function (evt) {
+    //         let index = evt.currentTarget.dataset.index;
+    //         let subIndex = Number(evt.currentTarget.dataset.sub) + 1;
+    //
+    //         // if (Number(evt.currentTarget.dataset.sub) === 0){
+    //         //     $(evt.currentTarget).parents('.category__main').find('.category__wrapper[data-sub!="' + subIndex + '"]').each(function () {
+    //         //         $(this).addClass('d-none');
+    //         //     })
+    //         // }
+    //         if (index) {
+    //             // $(evt.currentTarget).parents('.category__main').find('.category__wrapper[data-sub!="0"]').addClass('d-none');
+    //
+    //             const block = $(evt.currentTarget).parents('.category__main').find('.category__wrapper[data-index="' + index + '"][data-sub="' + subIndex + '"]');
+    //             block.removeClass('d-none');
+    //         }
+    //     }, function (evt) {
+    //
+    //         let subIndex = Number(evt.currentTarget.dataset.sub);
+    //         console.log(subIndex);
+    //         // const block = $(evt.currentTarget).parents('.category__main').find('.category__wrapper[data-sub="' + subIndex + 1 + '"]');
+    //         // if (subIndex === 1){
+    //         const block = $(evt.currentTarget).parents('.category__main').find('.category__wrapper[data-sub="' + subIndex + 1 + '"]');
+    //         console.log(block);
+    //         // if (subIndex > 0 && !Array.from(block).includes(evt.target.parentElement)) {
+    //         block.each(function () {
+    //             $(this).addClass('d-none');
+    //         })
+    //         //    }
+    //         //  }
+    //     })
+   // })
 
 
 })

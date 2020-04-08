@@ -31,7 +31,7 @@ module.exports = {
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,
     path: PATHS.dist,
-    publicPath: ''
+    publicPath: ""
   },
   optimization: {
     splitChunks: {
@@ -82,7 +82,7 @@ module.exports = {
       loader: 'file-loader',
       options: {
         name: '[name].[ext]',
-        publicPath: '/'
+        publicPath: `/${PATHS.assets}img`
       }
     }, {
       test: /\.scss$/,
@@ -124,8 +124,7 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}css/[name].[hash].css`,
-      publicPath: "assets/img"
+      filename: `${PATHS.assets}css/[name].[hash].css`
     }),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },

@@ -7,54 +7,54 @@ block variables
 
 
 block content
-  section.container
-    nav.col-lg-12.navigation.d-flex
+  section.container.p-0.pt-md-5.pb-md-5.pl-md-2.pr-md-2
+    nav(class="col-md-12 navigation d-md-flex collapse navbar-collapse" id="navbarTogglerDemo03")
       - let items = ['Главная','Пользователям','Кэшбек','Для бизнеса','Правила','Контакты']
       - let links = ['']
-      ul.d-flex.col-lg-7.justify-content-between.pt-3.pb-3
+      ul.d-md-flex.col-lg-12.col-xl-7.justify-content-between.pt-3.pb-3.flex-column.flex-md-row
         each val in items
-          li.text-white.d-flex.align-items-center
+          li.text-white.d-flex.align-items-center.p-3.p-md-0.link__item
             +link('/foo', val)(class="text-white")
-      div.row.d-flex.col-lg-5.no-gutters.pt-2.pb-2.pr-0.input-border-left
+      div.row.d-xl-flex.d-none.col-xl-5.no-gutters.pt-2.pb-2.pr-0.input-border-left
         div.col-lg-9.search
          input(class="col-lg-9 search__input" placeholder="Что Вы хотите найти?")/
          button.btn.text-black.dropdown-toggle.col-lg-3.btn-border-left Везде
         div.col-lg-3.d-flex
           button.search__button.col.ml-3.font-weight-bold Найти
-  section.container.d-flex.pt-0.brd-bottom.flex-wrap
+  section.container.d-flex.pt-md-0.brd-bottom.flex-wrap
     - let imageDescriptions = ['Для нее','Для него','Детям','Для дома','Техника','Красота','Услуги','Туризм','Магазины','Поесть','Для авто','Обучение']
-    div.col-lg-12.d-flex.p-0
+    div.col-lg-12.d-flex.p-0.flex-wrap
       each val, index in imageDescriptions
            +categories(index, val)
       include ../includes/modules/categories-dropdown
-  section.container.d-flex.pt-0.flex-wrap.mt-4
+  section.container.d-flex.pt-0.flex-wrap.mt-4.pr-xl-0
     button.slider-arrow.slider-arrow--prev.d-flex.align-items-center
       i.material-icons.text-brown keyboard_arrow_left
     include ../includes/modules/slider
     button.slider-arrow.slider-arrow--next.d-flex.align-items-center
       i.material-icons.text-brown keyboard_arrow_right
-  section.container.filter.pt-0.brd-bottom
-    form(method="POST" class="d-flex justify-content-between align-items-center ml-2 mr-3")
-      p.text-big.text-white.font-weight-bold Фильтровать
-      div.d-flex.align-items-center
-        label(for="city" class="filter__label text-white mr-4") Ваш город
+  section.container.filter.pt-0.brd-bottom.pr-lg-0
+    form(method="POST" class="d-flex flex-column flex-md-row justify-content-between align-items-md-center align-items-start ml-2")
+      p.text-big.text-white.font-weight-bold.mr-sm-2.mr-xl-0.d-none.d-md-block Фильтровать
+      div.d-flex.align-items-center.flex-column.flex-md-column.flex-xl-row.mr-sm-2.mr-xl-0.flex-md-row.col-12.col-md.justify-content-md-end.p-md-0
+        label(for="city" class="filter__label text-white mr-lg-4 mb-sm-2") Ваш город
         select(id="city" class="filter__select")
           option(checked="" value="1") Чебоксары
           option(checked="" value="2") Москва
           option(checked="" value="3") Санкт-Петербург
-      div.d-flex.align-items-center
-        label(for="shop" class="filter__label text-white mr-4") Магазины
+      div.d-flex.align-items-center.flex-column.flex-md-column.flex-xl-row.mr-sm-2.mr-xl-0.flex-md-row.col-12.col-md.justify-content-md-end.p-md-0
+        label(for="shop" class="filter__label text-white mr-lg-4 mb-sm-2") Магазины
         select(id="shop" class="filter__select")
           option(checked="" value="1") Все
           option(checked="" value="2") ASOS
           option(checked="" value="3") StoreShop
-      div.d-flex.align-items-center
-        label(for="sales" class="filter__label text-white mr-4") Все акции
+      div.d-flex.align-items-center.flex-column.flex-md-column.flex-xl-row.flex-md-row.col-12.col-md.justify-content-md-end.p-md-0
+        label(for="sales" class="filter__label text-white mr-lg-4 mb-sm-2") Все акции
         select(id="sales" class="filter__select")
           option(checked="" value="1") Все акции
           option(checked="" value="2") 1 + 1
           option(checked="" value="3") Подарок за покупку
-  section.container.pl-2
+  section.container.pl-2.pr-0
     h1.font-weight-bold.text-white.cards__title Популярные акции
     include ../includes/modules/cards
     button.btn.card__button.font-weight-bold.pt-3.pb-3
@@ -74,7 +74,21 @@ block script
           nextArrow: $('.slider-arrow--next')
       })
 
-   
+      $('#registrate').click((evt) => {
+        $('.user--unauth').toggle();
+      });
+
+      $('#profile-button').click((evt) => {
+
+        $(evt.currentTarget).parent().parent().find('.user').toggle();
+        $(evt.currentTarget).parent().parent().find('.user').toggleClass('animated fadeIn')
+      });
+
+      $('.category-dropdown').click(function (evt) {
+
+          $(evt.currentTarget).parents('.category__mobile').find('.dl-submenu').toggleClass('d-none animated fadeIn');
+      })
+
       $('.filter__select').niceSelect();
 
     });
