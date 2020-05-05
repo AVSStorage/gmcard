@@ -570,7 +570,7 @@
         window.Vue = t(18), Vue.component("example-component", t(586).default);
         new Vue({ el: "#app" }) }, 586: function(e, i, t) { "use strict";
         t.r(i); var n = function() { var e = this.$createElement,
-                i = this._self._c || e; return i("section", [i("div", { staticClass: "container" }, [i("img", { attrs: { src: "assets/img/logo.png", alt: this.message } }), i("p", [this._v(this._s(this.message))])])]) };
+                i = this._self._c || e; return i("section", [i("div", { staticClass: "container" }, [i("img", { attrs: { src: "/assets/img/logo.png", alt: this.message } }), i("p", [this._v(this._s(this.message))])])]) };
         n._withStripped = !0; var r = { data: function() { return { message: "Example Vue component" } } },
             o = (t(583), t(5)),
             c = Object(o.a)(r, n, [], !1, null, "220f7e6a", null);
