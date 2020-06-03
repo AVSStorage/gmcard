@@ -1,0 +1,84 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Webpack + Pug';
+    - var description = 'Description for Webpack + Pug';
+    - var pageClass = 'index-page';
+    -
+        let cards = [
+        {type: 1, discount: 50, blocked: false, src: "/assets/img/card.png", text:"Скидка на все модели AirMax до 50% в Магазине StoreShop", sale_text: 'Скидка до 50%', sale_src: '/assets/img/discount.png',special: false,special_info:false},
+        {type: 2, discount: false, blocked: false, src: "/assets/img/card2.png", text:"Полный курс обучения вождению авто...", sale_text: 'Купон на скидку 30%', sale_src: '/assets/img/discount2.png',special: false,special_info:false},
+        {type: 3, discount: false, blocked: false,src: "/assets/img/card3.png", text:"7 дней проживания с питанием в санатории Солнечный в...", sale_text: 'Скидка до 14000', sale_src: '/assets/img/discount.png',special: false,special_info:false},
+        {type: 4, discount: false, blocked: false, src: "/assets/img/card4.png", text:"Празнование любого торжества(юбилей, банкет, кор..)", sale_text: 'Подарок за покупку', sale_src: '/assets/img/discount3.png',special: false,special_info:false}]
+    - let unactive = [...cards].splice(0,1);
+    - let unseen =  [...cards].splice(2,1)
+
+block content
+    include ../includes/modules/sub-nav
+    include ../includes/modules/categories
+    div.col-lg-12.container.personal__container.grid-container.mt-5.mb-3
+        section.theme-container.promo.theme-dark.d-flex.flex-column
+            h1.promo__title Мои акции
+            h3.promo__subtitle Активные акции
+            div.promo__wrapper.mt-4.pl-2.pr-2.mb-3
+                each val, index in cards
+                    div.d-flex.flex-column.promo__card
+                        div.promo__card-wrapper
+                            +card(val.src,val.text,val.sale_text,val.sale_src, val.type, val.discount, val.special, val.special_info, val.blocked)
+                            div.promo__buttons
+                                button(class="btn promo__text" aria-label="Закрыть")
+                                    i.material-icons arrow_upward
+                                button(class="btn promo__text" aria-label="Закрыть")
+                                    i.material-icons edit
+                                button(class="btn promo__text" aria-label="Закрыть")
+                                    i.material-icons clear
+                        div.d-flex.justify-content-between.w-100.flex-wrap
+                            span.promo__text 18 сентрября 2014 23:10
+                            span.promo__text.d-flex
+                                i.material-icons.mr-2 favorite_border
+                                | 1258
+            h3.promo__subtitle.promo__subtitle--red Завершенные акции
+            div.promo__wrapper.mt-4.pl-2.pr-2.mb-3
+                each val, index in unactive
+                    div.d-flex.flex-column.promo__card
+                        div.promo__card-wrapper
+                            +card(val.src,val.text,val.sale_text,val.sale_src, val.type, val.discount, val.special, val.special_info, val.blocked)
+                            div.promo__buttons
+                                button(class="btn promo__text" aria-label="Закрыть")
+                                    i.material-icons edit
+                                button(class="btn promo__text" aria-label="Закрыть")
+                                    i.material-icons clear
+                        div.d-flex.justify-content-between.w-100
+                            span.promo__text 18 сентрября 2014 23:10
+                            span.promo__text.d-flex
+                                i.material-icons.mr-2 favorite_border
+                                | 1258
+            h3.promo__subtitle.promo__subtitle--red На модерации
+                div.promo__wrapper.mt-4.pl-2.pr-2.mb-3
+                    each val, index in unseen
+                        div.d-flex.flex-column.promo__card
+                            div.promo__card-wrapper
+                                +card(val.src,val.text,val.sale_text,val.sale_src, val.type, val.discount, val.special, val.special_info, val.blocked)
+                                div.promo__buttons
+                                    button(class="btn promo__text" aria-label="Закрыть")
+                                        i.material-icons edit
+                                    button(class="btn promo__text" aria-label="Закрыть")
+                                        i.material-icons clear
+                            div.d-flex.justify-content-between.w-100
+                                span.promo__text 18 сентрября 2014 23:10
+                                span.promo__text.d-flex
+                                    i.material-icons.mr-2 favorite_border
+                                    | 1258
+
+
+        include ../includes/modules/left-menu
+
+
+block script
+    script(type='text/javascript').
+        $(document).ready(function () {
+            $('.menu__toggler').click((evt) => {
+                $(evt.target).parent().find('.menu').toggleClass('d-none animated bounceIn');
+        })
+
+        });

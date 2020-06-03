@@ -119,6 +119,7 @@ module.exports = {
     alias: {
       '~': PATHS.src,
       'vue$': 'vue/dist/vue.js',
+      'video-js': path.resolve('./node_modules/video.js/dist/')
     }
   },
   plugins: [

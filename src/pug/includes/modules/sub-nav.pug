@@ -1,0 +1,14 @@
+section.container.p-0.pt-md-4.pb-md-2.pl-xl-0.pr-xl-0
+    nav(class="col-md-12 navigation d-md-flex collapse navbar-collapse" id="navbarTogglerDemo03")
+        - let items = [{name: 'Главная', url: "http://www.gmcash.ru"},{name: 'Пользователям', url: "http://www.gmcash.ru/tousers"},{name:'Кэшбек', url:"http://www.gmcash.ru/bussines"},{name: 'Для бизнеса', url: "http://www.gmcash.ru/bussines"},{name: 'Правила', url: "http://www.gmcash.ru/bussines"},{name: 'Контакты', url: "http://www.gmcash.ru/bussines" }]
+        - let links = ['']
+        ul.d-md-flex.col-lg-12.col-xl-7.justify-content-between.pt-3.pb-3.flex-column.flex-md-row
+            each val in items
+                li.text-white.d-flex.align-items-center.p-3.p-md-0.link__item
+                    +link(val.url, val.name)(class="text-white")
+        div.row.d-xl-flex.d-none.col-xl-5.no-gutters.pt-2.pb-2.pr-0.input-border-left.justify-content-end.pl-0
+            div.col-lg-8.search
+                input(class="col-lg-9 search__input" placeholder="Что Вы хотите найти?")/
+                button.btn.text-black.dropdown-toggle.col-lg-3.btn-border-left Везде
+            div.col-lg-3.d-flex
+                button.search__button.col.ml-3.font-weight-bold Найти

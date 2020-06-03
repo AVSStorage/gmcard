@@ -1,0 +1,6 @@
+section.container.d-flex.pt-0.brd-bottom.flex-wrap.categories__inner.pb-1.pl-xl-0.pr-xl-0
+    - let imageDescriptions = ['Для нее','Для него','Детям','Для дома','Техника','Красота','Услуги','Туризм','Магазины','Поесть','Для авто','Обучение']
+    div.col-lg-12.d-flex.p-0
+        each val, index in imageDescriptions
+            +categories(index, val)
+        div(id="dropdown")

@@ -60,3 +60,48 @@
     background-color:  #212529;
   }
 }
+
+@mixin square-block() {
+  display: flex;
+  background-color: #e5ecf0;
+  width: 122px;
+  min-height: 122px;
+  flex-direction: column;
+  border-radius: 18px;
+
+  &--big {
+    width: 100%;
+    min-height: 60vw;
+  }
+
+  @media (min-width: 450px) {
+    &--big {
+      width: 49%;
+      min-height: 36vw;
+      padding-bottom: 10px;
+    }
+
+  }
+
+  @media (min-width: 576px) {
+    &--big {
+      width: 30%;
+      min-height: 24vw
+    }
+  }
+  @media (min-width: 991px) {
+    &--big {
+      width: 185px;
+      min-height: 185px;
+      padding-bottom: 0px;
+    }
+  }
+
+  @media (min-width:1200px) {
+    &--big {
+      width: 220px;
+      min-height: 220px;
+    }
+  }
+}
+

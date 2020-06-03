@@ -1,0 +1,40 @@
+.menu {
+  &__item {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding-top: 7px;
+    padding-bottom: 7px;
+
+    &:last-child {
+      border-bottom:none;
+    }
+  }
+
+  &__toggler {
+    border-radius: 4px;
+    filter: drop-shadow(0px 2px 0px rgba(0, 26, 40, 0.29));
+    background-image: linear-gradient(0deg, #e8c507 0%, #f9dd13 100%);
+    font-size: 16px;
+    line-height: 17px;
+    color: #993300;
+  }
+  &__link {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 1em;
+    text-decoration: underline;
+
+
+
+    &:hover {
+      background-color: #063965;
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 9px;
+    }
+  }
+
+
+
+}

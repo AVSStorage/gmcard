@@ -1,2 +1,10 @@
 // libs here
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#import-only-sass-or-css-libs
+.time-input {
+  width: 42px !important;
+  height: 42px;
+  border-radius: 3px;
+  //  background-color: #ffffff;
+  border: 1px solid #d2dbe3;
+  text-align: center;
+}

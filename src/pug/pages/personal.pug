@@ -1,0 +1,56 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Webpack + Pug';
+    - var description = 'Description for Webpack + Pug';
+    - var pageClass = 'index-page';
+
+
+block content
+    include ../includes/modules/sub-nav
+    include ../includes/modules/categories
+    div.col-lg-12.container.personal__container.grid-container.mt-5.mb-3
+         section.theme-container.personal.theme-white.d-flex.flex-column
+                h1.personal__title Личный кабинет
+                div.personal__wrapper
+                    div.d-flex.align-items-start.justify-content-center
+                        div.personal__image-wrapper
+                            img(src="assets/img/avatar_big.png" class="personal__image")
+                            img(src="assets/img/brand.png" class="personal__brand")
+                    div.d-flex.flex-column
+                        p.personal__subtitle Дмитрий Шошин
+                        span.personal__text.personal__text--accent 27 лет
+                        table.personal__info
+                            tr
+                                td Место работы:
+                                td
+                                    a(href="#" class="personal__text--underline") GM
+                            tr
+                                td Место проживания:
+                                td
+                                    a(href="#" class="personal__text--underline") Чебоксары
+                            tr
+                                td Страна:
+                                td
+                                    a(href="#" class="personal__text--underline") Россия
+                            tr
+                                td Не женат
+                        div.d-flex.flex-column.personal__balance
+                            span.personal__text.personal__text--image.font-weight-bold Баланс
+                            p.personal__subtitle.d-flex.align-items-center
+                                | 13 400 руб.
+                                a(href="#" class="personal__text personal__text--underline personal__text--accent") Пополнить
+                        a(class="btn personal__button" href="add-sales.html") Запустить акцию
+                    div.d-flex.align-items-start
+                            a(href="#" class="personal__text personal__text--underline personal__text--accent") Редактировать
+         include ../includes/modules/left-menu
+
+
+block script
+    script(type='text/javascript').
+        $(document).ready(function () {
+            $('.menu__toggler').click((evt) => {
+                $(evt.target).parent().find('.menu').toggleClass('d-none animated bounceIn');
+            })
+
+        });

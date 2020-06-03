@@ -7,66 +7,99 @@ block variables
 
 
 block content
-  section.container.p-0.pt-md-5.pb-md-5.pl-md-2.pr-md-2
-    nav(class="col-md-12 navigation d-md-flex collapse navbar-collapse" id="navbarTogglerDemo03")
-      - let items = ['Главная','Пользователям','Кэшбек','Для бизнеса','Правила','Контакты']
-      - let links = ['']
-      ul.d-md-flex.col-lg-12.col-xl-7.justify-content-between.pt-3.pb-3.flex-column.flex-md-row
-        each val in items
-          li.text-white.d-flex.align-items-center.p-3.p-md-0.link__item
-            +link('/foo', val)(class="text-white")
-      div.row.d-xl-flex.d-none.col-xl-5.no-gutters.pt-2.pb-2.pr-0.input-border-left
-        div.col-lg-9.search
-         input(class="col-lg-9 search__input" placeholder="Что Вы хотите найти?")/
-         button.btn.text-black.dropdown-toggle.col-lg-3.btn-border-left Везде
-        div.col-lg-3.d-flex
-          button.search__button.col.ml-3.font-weight-bold Найти
-  section.container.d-flex.pt-md-0.brd-bottom.flex-wrap
-    - let imageDescriptions = ['Для нее','Для него','Детям','Для дома','Техника','Красота','Услуги','Туризм','Магазины','Поесть','Для авто','Обучение']
-    div.col-lg-12.d-flex.p-0.flex-wrap
-      each val, index in imageDescriptions
-           +categories(index, val)
-      include ../includes/modules/categories-dropdown
-  section.container.d-flex.pt-0.flex-wrap.mt-4.pr-xl-0
-    button.slider-arrow.slider-arrow--prev.d-flex.align-items-center
+  include ../includes/modules/sub-nav
+  include ../includes/modules/categories
+  section.container.d-flex.pt-0.flex-wrap.mt-4.pr-xl-0.pb-0.pl-xl-0.pr-xl-0.index
+    button.slider-arrow.slider-arrow--prev.d-flex.align-items-center.justify-content-center
       i.material-icons.text-brown keyboard_arrow_left
     include ../includes/modules/slider
-    button.slider-arrow.slider-arrow--next.d-flex.align-items-center
+    button.slider-arrow.slider-arrow--next.d-flex.align-items-center.justify-content-center
       i.material-icons.text-brown keyboard_arrow_right
-  section.container.filter.pt-0.brd-bottom.pr-lg-0
-    form(method="POST" class="d-flex flex-column flex-md-row justify-content-between align-items-md-center align-items-start ml-2")
+  section.container.filter.pt-0.brd-bottom.pr-lg-0.pb-3.pr-xl-0.pl-xl-0
+    form(method="POST" class="d-flex flex-column flex-md-row justify-content-between align-items-md-center align-items-start")
       p.text-big.text-white.font-weight-bold.mr-sm-2.mr-xl-0.d-none.d-md-block Фильтровать
       div.d-flex.align-items-center.flex-column.flex-md-column.flex-xl-row.mr-sm-2.mr-xl-0.flex-md-row.col-12.col-md.justify-content-md-end.p-md-0
-        label(for="city" class="filter__label text-white mr-lg-4 mb-sm-2") Ваш город
+        label(for="city" class="filter__label text-white mr-lg-2 mb-sm-2 mb-md-0 mb-1 mb-md-0") Ваш город
         select(id="city" class="filter__select")
           option(checked="" value="1") Чебоксары
           option(checked="" value="2") Москва
           option(checked="" value="3") Санкт-Петербург
-      div.d-flex.align-items-center.flex-column.flex-md-column.flex-xl-row.mr-sm-2.mr-xl-0.flex-md-row.col-12.col-md.justify-content-md-end.p-md-0
-        label(for="shop" class="filter__label text-white mr-lg-4 mb-sm-2") Магазины
+          option(checked="" value="/cities") Другой город
+      div.d-flex.align-items-center.flex-column.flex-md-column.flex-xl-row.mr-sm-2.mr-xl-0.flex-md-row.col-12.col-md.justify-content-md-end.p-md-0.mt-3.mt-md-0
+        label(for="shop" class="filter__label text-white mr-lg-2 mb-sm-2 mb-md-0 mb-1 mb-md-0") Скидки
         select(id="shop" class="filter__select")
-          option(checked="" value="1") Все
-          option(checked="" value="2") ASOS
-          option(checked="" value="3") StoreShop
-      div.d-flex.align-items-center.flex-column.flex-md-column.flex-xl-row.flex-md-row.col-12.col-md.justify-content-md-end.p-md-0
-        label(for="sales" class="filter__label text-white mr-lg-4 mb-sm-2") Все акции
+          - let sale = 0
+            while (sale < 100)
+              - sale = sale+ 5
+                option(checked="" value=sale) Не менее #{sale} %
+      div.d-flex.align-items-center.flex-column.flex-md-column.flex-xl-row.flex-md-row.col-12.col-md.justify-content-md-end.p-md-0.mt-3.mt-md-0
+        label(for="sales" class="filter__label text-white mr-lg-2 mb-sm-2 mb-md-0 mb-1 mb-md-0") Все акции
+        - let saleTypes = [{name: "Все предложения от пользователей", url: "www.gmcash.ru/alloffersfromusers"}, {name: "Показать только скидки", url: "www.gmcash.ru/onlydiscounts"}, {name:"Показать только купоны на скидку", url:"www.gmcash.ru/couponsonly"}, {name:"Показать только подарки при покупке", url:"www.gmcash.ru/giftuponpurchase"}, {name: "Показать только 2 по цене 1", 'url': "www.gmcash.ru/twoforthepriceofone"},{name:"Показать только 3 по цене 2", url:"www.gmcash.ru/threeforthepriceoftwo"},{name:"Показать только кэшбэк", url:"www.gmcash.ru/cashbackfromusers"},{name:"Показать только конкурсы", url: "www.gmcash.ru/competition"}]
         select(id="sales" class="filter__select")
-          option(checked="" value="1") Все акции
-          option(checked="" value="2") 1 + 1
-          option(checked="" value="3") Подарок за покупку
-  section.container.pl-2.pr-0
+          each val in saleTypes
+            option(checked="" value=val.url)= val.name
+  section.container.pl-xl-0.pr-xl-0.pt-3
     h1.font-weight-bold.text-white.cards__title Популярные акции
     include ../includes/modules/cards
     button.btn.card__button.font-weight-bold.pt-3.pb-3
       | Посмотреть еще
       i.material-icons.ml-2 cached
+  section.container.pl-xl-0.pr-xl-0
+    h1.font-weight-bold.text-white.cards__title.mb-4 Популярные магазины
+    - let sales = [{image: 'aliexpress.png', text: 'AliExpress', percentage: '5.0'  },{image: 'lamoda.png', text: 'Lamoda Ru', percentage: '4.5'  }, {image: 'ebay.png', text: 'Ebay US', percentage: '1.5'  }]
+      div.sale
+        each val in sales
+          +sale_card(val.image,val.text,val.percentage, false)
+        each val, index in sales
+          +sale_card(val.image,val.text,val.percentage,index)
+        +sale_card(sales[0].image,sales[0].text,sales[0].percentage,3)
+  section.container.pl-xl-0.pr-xl-0.brd-bottom
+    h1.font-weight-bold.text-white.cards__title.mb-4 Новые магазины
+    div.sale
+        each val in sales
+          +sale_card(val.image,val.text,val.percentage, false)
+        +sale_card(sales[0].image,sales[0].text,sales[0].percentage,3)
+    button.btn.card__button.font-weight-bold.pt-3.pb-3 Все магазины
+  section.container.pl-2.pr-xl-0.mb-5
+    h1.font-weight-bold.text-white.cards__title.mb-4 Скидочные купоны
+    - let coupons = [{time:"2 часа", src:"lamoda.png", text: "Скидка - 20% на все продукты!", coupon: "prosale"}, {time: "2 недели", src : "aliexpress.png", text: "Маленбкая книга про большие чувства: Бесплатный Минибук!", coupon: "prosale"}, {time: "4 дня", src:"ebay.png", text: "Лучщие акции интернет-магазина Галерея-косметики!", coupon: false},{time:"16 часов",src:"lamoda.png", text: "Скидки до 75% на верхнюю одежжу для мужчин!", coupon: "lamenday"}]
+      div.sale
+        each val in coupons
+          +coupon(val.src,val.time,val.text, val.coupon)
+    button.btn.coupon__more  Показать еще
+    div.line
+
 
 
 
 block script
   script(type='text/javascript').
+    /*
+     * Copyright (c) 2014 Mike King (@micjamking)
+     *
+     * jQuery Succinct plugin
+     * Version 1.1.0 (October 2014)
+     *
+     * Licensed under the MIT License
+     */
+    /*global jQuery*/
+    !function (a) {
+      "use strict";
+      a.fn.succinct = function (b) {
+        var c = a.extend({size: 240, omission: "...", ignore: !0}, b);
+        return this.each(function () {
+          var b, d, e = a(this), f = /[!-\/:-@\[-`{-~]$/, g = function () {
+            e.each(function () {
+              b = a(this).html(), b.length > c.size && (d = a.trim(b).substring(0, c.size).split(" ").slice(0, -1).join(" "), c.ignore && (d = d.replace(f, "")), a(this).html(d + c.omission))
+            })
+          };
+          g()
+        })
+      }
+    }(jQuery);
     $(document).ready(function(){
-      $('.slider__main').slick({
+
+      $('..slider__main').slick({
           slidesToShow: 1,
           infinite: true,
           slidesToScroll: 1,
@@ -84,12 +117,19 @@ block script
         $(evt.currentTarget).parent().parent().find('.user').toggleClass('animated fadeIn')
       });
 
+      $('.close-category').click((evt) => {
+        $(evt.currentTarget).parent().toggleClass('animated fadeOut');
+      })
       $('.category-dropdown').click(function (evt) {
 
           $(evt.currentTarget).parents('.category__mobile').find('.dl-submenu').toggleClass('d-none animated fadeIn');
       })
 
-      $('.filter__select').niceSelect();
+
+
+
+
+
 
     });
 

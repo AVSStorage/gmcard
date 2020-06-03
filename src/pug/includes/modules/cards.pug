@@ -20,6 +20,6 @@
 - cards = paginate(cards, 12, 1);
 
 
-div.col-lg-12.card__wrapper.mt-5.pl-2.pr-2
+div.col-lg-12.card__wrapper.mt-5.pl-0.pr-0
     each val, index in cards
-        +card(val.src,val.text,val.sale_text,val.sale_src, val.type, val.discount, val.special, val.special_info, val.blocked)
+        +card(val.src,val.text,val.sale_text,val.sale_src, val.type, val.discount, val.special, val.special_info, val.blocked,index)

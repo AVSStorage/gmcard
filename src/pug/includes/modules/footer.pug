@@ -2,36 +2,38 @@ footer.bg-navy
   div.container.pt-3
         ul.d-flex.justify-content-between.pt-4.pb-4.brd-bottom.flex-wrap.footer__menu
             li.text-uppercase.font-weight-bold.text-white
-                a(href="#" class="text-white") Все магизины
+                a(href="http://www.gmcash.ru/cashback" class="text-white") Все магазины
             li.text-uppercase.font-weight-bold.text-white
-                a(href="#" class="text-white") Все промокоды
+                a(href="http://www.gmcash.ru/coupons" class="text-white") Все промокоды
             li.text-uppercase.font-weight-bold.text-white
-                a(href="#" class="text-white") Все скидки
+                a(href="http://www.gmcash.ru/coupons" class="text-white") Все скидки
             li.text-uppercase.font-weight-bold.text-white
-                a(href="#" class="text-white") Все конкурсы
+                a(href="http://www.gmcash.ru/coupons" class="text-white") Все конкурсы
             li.text-uppercase.font-weight-bold.text-white
-                a(href="#" class="text-white") Помощь
+                a(href="http://www.gmcash.ru/coupons" class="text-white") Помощь
             li.text-uppercase.font-weight-bold.text-white
-                a(href="#" class="text-white") О нас
+                a(href="http://www.gmcash.ru/coupons" class="text-white") О нас
             li.text-uppercase.font-weight-bold.text-white
-                a(href="#" class="text-white") Контакты
+                a(href="http://www.gmcash.ru/coupons" class="text-white") Контакты
         div.footer__wrapper
               div.footer__block.brd-bottom
                   div.footer__inner
                       div
                           p.footer__title Больше скидок
                           p.footer__text.text-white.mb-3 В нашем мобильном приложении
-                          a(class="footer__application footer__application--appstore mb-2" href="#" aria-label="App Store приложение")
-                          a(class="footer__application footer__application--google mb-2" href="#" aria-label="Google Play приложение")
+                          div(data-hint="В разработке" class="hint-top-middle-t-info-s-small hint-anim")
+                              a(class="footer__application footer__application--appstore mb-2" href="#" aria-label="App Store приложение")
+                          div(data-hint="В разработке" class="hint-top-middle-t-info-s-small hint-anim")
+                              a(class="footer__application footer__application--google mb-2" href="#" aria-label="Google Play приложение")
                   div.footer__main
                       div.footer__social.mb-4
                           p.footer__title Следите за новостями и акциями
                           ul.social.mb-5
-                              li.social__item
+                              li(data-hint="Руки никак не доходят :)" class="hint-top-middle-t-info-s-small hint-anim social__item")
                                   a(href="facebook" class="social__link social__link--vk") Вконтакте
-                              li.social__item
+                              li(data-hint="Руки никак не доходят :)" class="hint-top-middle-t-info-s-small hint-anim social__item")
                                   a(href="facebook" class="social__link social__link--facebook") Facebook
-                              li.social__item
+                              li(data-hint="Руки никак не доходят :)" class="hint-top-middle-t-info-s-small hint-anim social__item")
                                   a(href="facebook" class="social__link social__link--icon social__link--instagram" aria-label="Instagram")
 
                           p.footer__title Служба поддержки GM
@@ -41,9 +43,8 @@ footer.bg-navy
                                           i.material-icons.social__icon.mr-2 mail_outline
                                           | admin@gm1lp.ru
                                   li.social__item
-                                      a(href="tel:+7(927)997-888-44" class="text-white d-flex align-items-center brd-bottom pb-1")
-                                          i.material-icons.social__icon.mr-2 call
-                                          | +7(927)997-888-44
+                                      button( type="button"  data-toggle="modal" data-target="#myModal" class="text-white d-flex align-items-center brd-bottom pb-1" )
+                                          | «Где мой кэшбэк?»
                       div.footer__partners.mb-4
                             p.footer__title Мы работаем  с
                             div.d-flex
@@ -61,18 +62,83 @@ footer.bg-navy
                                       img(src="assets/img/partners3.png" class="pt-2 pb-2")
                             span.font-weigth-bold.footer__title.footer__partners-suffix И другие
                       div.footer__info.pt-3.pb-3.justify-content-start.footer__info-menu
-                          a(href="#" class="footer__info-link mr-5") Политика защиты персональной информации
-                          a(href="#" class="footer__info-link") Пользовательское соглашение
+                          a(href="http://www.gmface.ru/help/privacypolicy" class="footer__info-link mr-5") Политика защиты персональной информации
+                          a(href="http://www.gmface.ru/help/terms" class="footer__info-link") Пользовательское соглашение
               div.footer__info.pt-4.pb-4.footer__info-grid
                   div.footer__copyright
                       img(src="assets/img/footer__logo.png" class="mr-2")
                       span.text-uppercase.ml-2 GM 2014 — 2019
                   div.footer__links
-                      a(href="#" class="text-uppercase") +Партнерская програма
-                      a(href="#" class="text-uppercase") +Добавить магазин
+                      a(href="http://www.gmface.ru/help/terms" class="text-uppercase") +Партнерская програма
+                      a(href="http://www.gmface.ru/help/terms" class="text-uppercase") +Добавить магазин
                   div.footer__city
                       select.filter__select
                         option.city__item.city__item--russia Россия
                         option Украина
                         option Германия
         img(src="assets/img/footer_image.png" class="footer__image")
+        div(class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+            div(class="modal-dialog" role="document")
+                div.modal-content
+                    div.modal-header
+                        h4(class="modal-title" id="myModalLabel") Где мой кэшбек?
+                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                            span(aria-hidden="true") &times;
+
+                    form.modal-body
+                        p.modal-text Пожалуйста заполните эту форму и мы поможем Вам найти кэшбек
+                        p.modal-text Поиск кэшбека возможен, если с момента соверщения покупки прошло не более 6 месяцев, т.е. если Вы потеряли бонус за покупку, которую сделали более полугода назад,  то найти нам его, скорее всего, не удастся.
+                        div.form-group.mt-2
+                            label(for="email") Email, указанный при регистрации
+                            input(type="text" name="email" id="email" class="form-control")
+                        div.form-group.mt-2
+                            label(for="date") Дата покупки
+                            small(id="dateHelpBlock" class="form-text text-muted") Дата покупки должна быть не менее 5 дней назад, т.к. в некоторых интернет-магазинах отслеживание Вашей покупки и зачисление бонуса может занять до 5 дней.
+                            input(type="date" name="order_date" id="date" class="form-control")
+                        div.form-group.mt-2
+                            label(for="date") Магазин
+                            small(id="shopHelpBlock" class="form-text text-muted") Здесь отображаются магазины, которые Вы посещали в течение 7 дней.
+                            input(type="text" name="shop" id="shop" class="form-control")
+                        div.form-group.mt-2
+                            label(for="date") Номер заказа
+                            input(type="number" name="order_id" id="order" class="form-control")
+                        div.form-group.mt-2
+                            label(for="sum") Сумма покупки
+                            input(type="number" name="sum" id="sum" class="form-control")
+                        div.form-group.mt-2
+                            label(for="currency") Валюта
+                            select(id="currency" name="currency" class="form-control")
+                                option RUB
+                                option USD
+                        div.form-group.mt-2
+                            label Покупка соверщена через мобильное приложение?
+                            div.form-group.d-flex
+                                label.d-flex.align-items-center.mr-3 Да
+                                    input(type="radio" name="mobile[]" value="Да" class="ml-2")
+                                label.d-flex.align-items-center Нет
+                                    input(type="radio" name="mobile[]" value="Нет" class="ml-2")
+                        div.form-group.mt-2
+                            label Вы использовали промокоды?
+                            div.form-group.d-flex
+                                label.d-flex.align-items-center.mr-3 Да
+                                    input(type="radio" name="promocode[]" value="Да" class="ml-2")
+                                label.d-flex.align-items-center Нет
+                                    input(type="radio" name="promocode[]" value="Нет" class="ml-2")
+                        div.form-group.mt-2
+                            label Находились ли товары в корзине до перехода через GmCash?
+                            div.form-group.d-flex
+                                label.d-flex.align-items-center.mr-3 Да
+                                    input(type="radio" name="basket[]" value="Да" class="ml-2")
+                                label.d-flex.align-items-center Нет
+                                    input(type="radio" name="basket[]" value="Нет" class="ml-2")
+                        div.form-group.mt-2
+                            label(for="date") Пожалуйста, прикрепите скриншот заказа, где видно номер заказа, дату заказа  и полную сумму покупки
+                            small(id="fileHelpBlock" class="form-text text-muted") Прикрепит файл (рамер до 1МБ): (*.pdf, *.png, *.jpg, *.gif, *.jpeg)
+                            input(type="file" name="file" accept=".pdf,.png,.jpg,.gif,.jpeg" max-file-size="1" id="file" class="form-control")
+                        div.form-group.mt-2
+                            label Комментарий
+                            textarea.form-control
+
+                    div.modal-footer
+                        button(type="button" class="btn btn-primary") Отправить
+

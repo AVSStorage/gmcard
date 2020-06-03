@@ -1,0 +1,24 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Webpack + Pug';
+    - var description = 'Description for Webpack + Pug';
+    - var pageClass = 'index-page';
+
+
+block content
+    include ../includes/modules/sub-nav
+    include ../includes/modules/categories
+    div.col-lg-12.container.personal__container.grid-container.mt-5.mb-3
+        section.theme-container.theme-white
+            input(class="form-input w-100" type="text" placeholder="Введите город")
+        aside.theme-container.theme-white.d-flex.flex-column.pl-0.pr-0.pt-0.pt-md-3.pb-0.pb-md-3.mb-3
+            ul.menu.d-none.d-md-flex.flex-md-column
+                li.pl-4.pr-4.menu__item
+                    a(href="personal.html" class="menu__link") Россия
+                li.pl-4.pr-4.menu__item
+                    a(href="add-sales.html" class="menu__link") Украина
+                li.pl-4.pr-4.menu__item
+                    a(href="promos.html" class="menu__link") Белоруссия
+                li.pl-4.pr-4.menu__item
+                    a(href="#" class="menu__link") Казахстан

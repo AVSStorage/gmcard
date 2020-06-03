@@ -1,0 +1,424 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Webpack + Pug';
+    - var description = 'Description for Webpack + Pug';
+    - var pageClass = 'index-page';
+
+
+block content
+    include ../includes/modules/sub-nav
+    include ../includes/modules/categories
+    div.col-lg-12.container.mt-2.mb-3.pl-0.pr-0
+        div
+            div.d-flex.d-lg-none.theme-white.flex-column.theme-container.theme-shadow
+                div.d-flex.flex-column
+                    div.pt-2.pb-2.pl-3.pr-3.d-flex.align-items-center
+                        span До конца акции
+                        img(src="/assets/img/alarm.png" class="ml-1 mr-1")
+                        span.acent.font-weight-bold 4 дня 15:13:15
+                    div.d-flex.promo-form__border.p-r.pl-3.pr-3.pt-3
+                        p.commercial__type-text Зимняя распродажа до -50% на все в Снежная Королева!
+                    div.d-flex.p-3.align-items-start.flex-wrap
+                        img(src="/assets/img/sale-mini.png" class="commercial__type-image")
+                        div.d-flex.flex-column.ml-2
+                            p.font-weight-bold.commercial__type-text--big Скидка 50%
+                            d.flex
+                                span.commercial__type-text--small.commercial__type-text--acent При предъявлении промокода
+                        div.d-flex.flex-column.commercial__type-border.commercial__type-border--green
+                            p.d-flex.flex-column.commercial__type-text--small
+                                span.font-weight-bold Дополнительные условия
+                                | Сделай покупки на сумму выше 60 000 рублей и используй промокод что бы получить скидку до 10 000 рублей
+                            p.d-flex.flex-column.commercial__type-text--small
+                                span.font-weight-bold Минимальная сумма
+                                | 60 000 рублей
+                    a(href="#" class="commercial__type-button coupon-modal-open commercial__type-button--green") Получить промокод
+                div.commercial__modal.theme-container.d-none.flex-column
+                    button.btn.align-self-end.coupon-modal-close
+                        i.material-icons clear
+                    div.d-flex.justify-content-center.flex-column.align-items-center
+                        img(src="/assets/img/discount2.png" )
+                        span.commercial__type-text--small.commercial__type-text--acent Ваш промокод
+                        input(type="text" readonly value="vesna-9SLwX-sWxB-MNbT0")
+                        button(class="commercial__type-button commercial__type-button--yellow") Скопировать и перейти на сайт
+                        button(class="btn commercial__type-text--small commercial__type-text--acent") Просто скопировать
+            section.d-flex.pt-0.flex-wrap.mt-4.pr-xl-0.pb-0.commercial__slider.maxi
+                div.p-r.col-12.p-0
+                    div(class="p-r col-12 col-lg-8 p-0")
+                        button.slider-arrow--dark.slider-arrow.slider-arrow--prev
+                            i.material-icons.text-brown keyboard_arrow_left
+                        div.slider__main.slider__sale.col-md-12
+                            div.p-r
+                                img(src="/assets/img/sale_slider1.png" class="slider__image-main")
+                                img(src="/assets/img/discount.png" class="card__sale-type")
+                            div.p-r
+                                img(src="/assets/img/sale_slider2.png" class="slider__image-main")
+                                img(src="/assets/img/discount.png" class="card__sale-type")
+                                div.card__special.commercial__special
+                                    img(src="/assets/img/sale1.png" class="card__special-image")
+                                    span от 3000 ₽
+                            div.p-r
+                                img(src="/assets/img/sale_slider1.png" class="slider__image-main")
+                                img(src="/assets/img/discount.png" class="card__sale-type")
+                        button.slider-arrow.slider-arrow--dark.slider-arrow--next
+                            i.material-icons.text-brown keyboard_arrow_right
+
+            section.theme-container.commercial.theme-white.pt-0.col-12.col-lg-8
+                div.commercial__header.mb-3.d-flex.flex-wrap.justify-content-between.pt-3.pt-md-0
+                    div.d-flex.justify-content-between.flex-wrap.align-items-center
+                        div.d-flex.justify-content-between.mr-sm-5.mb-3.mb-md-0.mr-4.mr-md-0
+                            span.font-weight-bold.mr-3 Поделиться
+                            div(class="pluso" data-background="none;" data-options="small,square,line,horizontal,nocounter,sepcounter=1,theme=14" data-services="vkontakte,facebook,twitter,odnoklassniki,moimir" data-url="http://localhost:8086/" data-title="GM CARD")
+                        div.d-flex.justify-content-between.align-items-center
+                            button.btn.commercial__favorite.d-flex.align-items-center.font-weight-bold
+                                i.material-icons.mr-0.mr-sm-2.mr-lg-1 favorite_border
+                                | 1258
+                    div.d-flex.mt-2.mt-sm-0
+                            button.btn.commercial__photos-btn Показать еще 5 фото
+                                span
+                                    i.material-icons keyboard_arrow_down
+                    div.justify-content-between.commercial__photos.promo-form__border.p-r.pt-4.mt-3.d-none.animated.col-12.pl-0.pr-0
+                        a(data-fancybox="gallery" class="commercial__image" href="assets/img/sale_image1.png")
+                                img(src="assets/img/sale_image1.png")
+                        a(data-fancybox="gallery" class="commercial__image" href="assets/img/sale_image2.png")
+                            img(src="assets/img/sale_image2.png")
+                        a(data-fancybox="gallery" class="commercial__image" href="assets/img/sale_image3.png")
+                            img(src="assets/img/sale_image3.png")
+                        a(data-fancybox="gallery" class="commercial__image" href="assets/img/sale_image4.png")
+                            img(src="assets/img/sale_image4.png")
+                        da(data-fancybox="gallery" class="commercial__image" href="assets/img/sale_image3.png")
+                            img(src="assets/img/sale_image3.png")
+                div.commercial__info.promo-form__border.p-r
+                    p.font-weight-bold «Снежная Королева» — крупнейшая российская сеть мультибрендовых магазинов модной одежды. Открытие первого магазина компании состоялось в Москве в 1998 году. Сегодня в обеих столицах и крупных региональных городах открыто более ста магазинов компании.
+                    p Более 16 лет своего существования компания «Снежная Королева» успешно развивает формат престижного Department Store, предоставляя своим покупателям любые виды женской, мужской одежды и аксессуаров высокого качества в пределах одного магазина, и уже зарекомендовала себя экспертом в области торговли верхней одеждой из кожи и меха, гарантом качества и специалистом в сфере предоставления услуг по формированию стиля.
+                    p Создание собственных торговых марок, сотрудничество с ведущими мировыми производителями, динамичное развитие формата розничной торговли в соответствии с международными тенденциями, проведение масштабных рекламных кампаний — все это характеризует деятельность «Снежной Королевы».
+                    p Сегодня в любом магазине «Снежная Королева» можно подобрать одежду и аксессуары для создания целостных модных и гармоничных образов на разные случаи жизни и любую погоду.
+                    p.font-weight-bold ФИНАЛЬНАЯ РАСПРОДАЖА! СКИДКИ ДО 70% НА ВСЕ!
+                    p Сохранить семейный бюджет и обновить гардероб модной одеждой  на разные случаи жизни и любую погоду — легко!
+                        | Нужно лишь творчески подойти к вопросу и выбрать правильное место для шоппинга!
+                        | «Снежная Королева» приглашает за удачными покупками и объявляет
+                        | грандиозные скидки — до 70% на всю коллекцию весна-лето
+                        | с 28 июля до 31 августа!
+                    p.font-weight-bold Условия и ограничения:
+                    p Акция действует во всех магазинах сети «Снежная Королева» и интернет-магазине.
+                        | Акция не распространяется на модели из новой коллекции.
+                        | Скидка по данной акции не суммируется со скидкой по Картам Королевского Клуба.
+                        | Товары, участвующие в акции, не могут быть оформлены в кредит «без переплаты».
+                div.d-flex.justify-content-center.commercial__video
+                    video(
+                        id="vid1"
+                        class="video-js vjs-default-skin"
+                        controls
+                        width="636" height="343"
+                        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=ZSkx7B13kH4"}] }'
+                    )
+                div.d-flex.flex-column.mt-5.commercial__social-wrapper
+                    ul.d-flex.commercial__social.flex-wrap
+                        li
+                            a(href="#" class="sale__social-link")
+                        li
+                            a(href="#" class="sale__social-link")
+                        li
+                            a(href="#" class="sale__social-link")
+                        li
+                            a(href="#" class="sale__social-link")
+                        li
+                            a(href="#" class="sale__social-link")
+                        li
+                            a(href="#" class="sale__social-link")
+                    p.mt-3
+                        | Наш сайт:
+                        a(href="#" class="ml-2") goo.gl/2cSMwl
+            div.d-flex.theme-white.flex-column.theme-container.pt-4.pb-2.pl-4.pr-4.theme-shadow.mt-5.commercial__inner.d-lg-none
+                iframe(src="https://yandex.ru/map-widget/v1/-/CSECYIj5"  height="190" frameborder="1" allowfullscreen="true" style="position:relative;width:100%")
+                div.d-flex.flex-column.promo-form__border.p-r.mt-4.pt-2
+                    p.font-weight-bold.commercial__type-text--big Контакты
+                    div.d-flex.flex-column.commercial__address-wrapper
+                        div.d-flex.justify-content-between.commercial__address
+                            div.d-flex.flex-column
+                                p.font-weight-bold.commercial__type-text Адрес1
+                                p.commercial__type-text--acent Россия, Москва, Калужско-Рижская линия, метро Ленинский проспект
+                            button.btn.commercial__address-button.commercial__address-button--show
+                                i.material-icons keyboard_arrow_up
+                            button.btn.d-none.commercial__address-button.commercial__address-button--hide
+                                i.material-icons keyboard_arrow_down
+                        div.flex-column.commercial__address-info
+                            div.d-flex.flex-column.commercial__address-icon.commercial__address-icon--time.mb-2
+                                p.font-weight-bold.commercial__type-text График работы
+                                p.commercial__type-text--acent Вс. -Чт. с 10:00 до 22:00, <br/> Пт. - Сб. с 10:00 до 23:00
+                            div.d-flex.flex-column.commercial__address-icon.commercial__address-icon--phone.mb-2
+                                p.font-weight-bold.commercial__type-text Телефоны
+                                p.commercial__type-text--acent 800-2000-600-700
+                            div.d-flex.flex-column.commercial__address-icon.commercial__address-icon--link.mb-2
+                                p.font-weight-bold.commercial__type-text Сайт
+                                a(href="goo.gl/2cSMwl") goo.gl/2cSMwl
+                - let m = 2
+                while (m < 5)
+                    div.d-flex.flex-column.commercial__address-wrapper.promo-form__border.p-r
+                        div.d-flex.justify-content-between.commercial__address
+                            div.d-flex.flex-column
+                                p.font-weight-bold.commercial__type-text Адрес #{m++}
+                                p.commercial__type-text--acent Россия, Москва, Калужско-Рижская линия, метро Ленинский проспект
+                            button.btn.commercial__address-button.commercial__address-button--show
+                                i.material-icons keyboard_arrow_up
+                            button.btn.d-none.commercial__address-button.commercial__address-button--hide
+                                i.material-icons keyboard_arrow_down
+                        div.flex-column.d-none.commercial__address-info
+                            div.d-flex.flex-column.commercial__address-icon.commercial__address-icon--time.mb-2
+                                p.font-weight-bold.commercial__type-text График работы
+                                p.commercial__type-text--acent Вс. -Чт. с 10:00 до 22:00, <br/> Пт. - Сб. с 10:00 до 23:00
+                            div.d-flex.flex-column.commercial__address-icon.commercial__address-icon--phone.mb-2
+                                p.font-weight-bold.commercial__type-text Телефоны
+                                p.commercial__type-text--acent 800-2000-600-700
+                            div.d-flex.flex-column.commercial__address-icon.commercial__address-icon--link.mb-2
+                                p.font-weight-bold.commercial__type-text Сайт
+                                a(href="goo.gl/2cSMwl") goo.gl/2cSMwl
+        aside(class="d-none flex-column col-lg-4 commercial__sidebar d-lg-flex pr-0 pl-0" style="max-width:35%")
+            div.d-flex.theme-white.flex-column.theme-container.theme-shadow
+                    div.d-flex.flex-column
+                        div.pt-2.pb-2.pl-3.pr-3.d-flex.align-items-center
+                            span До конца акции
+                            img(src="/assets/img/alarm.png" class="ml-1 mr-1")
+                            span.acent.font-weight-bold 4 дня 15:13:15
+                        div.d-flex.promo-form__border.p-r.pl-3.pr-3.pt-3
+                            p.commercial__type-text Зимняя распродажа до -50% на все в Снежная Королева!
+                        div.d-flex.p-3.align-items-start.flex-wrap
+                            img(src="/assets/img/sale-mini.png" class="commercial__type-image")
+                            div.d-flex.flex-column.ml-2
+                                p.font-weight-bold.commercial__type-text--big Скидка 50%
+                                d.flex
+                                    span.commercial__type-text--small.commercial__type-text--acent При предъявлении промокода
+                            div.d-flex.flex-column.commercial__type-border.commercial__type-border--green
+                                p.d-flex.flex-column.commercial__type-text--small
+                                    span.font-weight-bold Дополнительные условия
+                                    | Сделай покупки на сумму выше 60 000 рублей и используй промокод что бы получить скидку до 10 000 рублей
+                                p.d-flex.flex-column.commercial__type-text--small
+                                    span.font-weight-bold Минимальная сумма
+                                    | 60 000 рублей
+                        a(href="#" class="commercial__type-button coupon-modal-open commercial__type-button--green") Получить промокод
+                    div.commercial__modal.theme-container.d-none.flex-column
+                        button.btn.align-self-end.coupon-modal-close
+                            i.material-icons clear
+                        div.d-flex.justify-content-center.flex-column.align-items-center
+                                img(src="/assets/img/discount2.png" )
+                                span.commercial__type-text--small.commercial__type-text--acent Ваш промокод
+                                input(type="text" readonly value="vesna-9SLwX-sWxB-MNbT0")
+                                button(class="commercial__type-button commercial__type-button--yellow") Скопировать и перейти на сайт
+                                button(class="btn commercial__type-text--small commercial__type-text--acent") Просто скопировать
+            div.d-none
+                div.d-flex.theme-white.flex-column.theme-container.theme-shadow
+                    div.pt-2.pb-2.pl-3.pr-3.d-flex.align-items-center
+                        span До конца акции
+                        img(src="/assets/img/alarm.png" class="ml-1 mr-1")
+                        span.acent.font-weight-bold 4 дня 15:13:15
+                    div.d-flex.promo-form__border.p-r.pl-3.pr-3.pt-3
+                        p.commercial__type-text Зимняя распродажа до -50% на все в Снежная Королева!
+                    div.d-flex.p-3.align-items-start.flex-wrap
+                        img(src="/assets/img/discount.png" class="commercial__type-image")
+                        div.d-flex.flex-column.ml-2
+                            p.font-weight-bold.commercial__type-text--big Скидка 50%
+                            d.flex
+                                img(src="assets/img/sale_coupon.png" class="mr-2")
+                                span.commercial__type-text--small.commercial__type-text--acent Купон не нужен
+                    a(href="#" class="commercial__type-button commercial__type-button--green") Перейти на сайт
+                div.d-flex.theme-white.flex-column.theme-container
+                    div.pt-2.pb-2.pl-3.pr-3.d-flex.align-items-center
+                        span До конца акции
+                        img(src="/assets/img/alarm.png" class="ml-1 mr-1")
+                        span.acent.font-weight-bold 4 дня 15:13:15
+                    div.d-flex.promo-form__border.p-r.pl-3.pr-3.pt-3
+                        p.commercial__type-text Зимняя распродажа до -50% на все в Снежная Королева!
+                    div.d-flex.p-3.align-items-start.flex-wrap
+                        img(src="/assets/img/discount.png" class="commercial__type-image")
+                        div.d-flex.flex-column.ml-2
+                            p.font-weight-bold.commercial__type-text--big Скидка до 10 000 руб.
+                            d.flex
+                                img(src="assets/img/sale_coupon.png" class="mr-2")
+                                span.commercial__type-text--small.commercial__type-text--acent Купон не нужен
+                    a(href="#" class="commercial__type-button commercial__type-button--green") Перейти на сайт
+                div.d-flex.theme-white.flex-column.theme-container
+                    div.pt-2.pb-2.pl-3.pr-3.d-flex.align-items-center
+                        span До конца акции
+                        img(src="/assets/img/alarm.png" class="ml-1 mr-1")
+                        span.acent.font-weight-bold 4 дня 15:13:15
+                    div.d-flex.promo-form__border.p-r.pl-3.pr-3.pt-3
+                        p.commercial__type-text Зимняя распродажа до -50% на все в Снежная Королева!
+                    div.d-flex.p-3.align-items-start.flex-wrap
+                        img(src="/assets/img/discount2.png" class="commercial__type-image")
+                        div.d-flex.flex-column.ml-2
+                            p.font-weight-bold.commercial__type-text--big Скидка 50%
+                            d.flex
+                                span.commercial__type-text--small.commercial__type-text--acent При предъявлении купона
+                    a(href="#" class="commercial__type-button commercial__type-button--yellow") Получить купон
+                div.d-flex.theme-white.flex-column.theme-container
+                    div.pt-2.pb-2.pl-3.pr-3.d-flex.align-items-center
+                        span До конца акции
+                        img(src="/assets/img/alarm.png" class="ml-1 mr-1")
+                        span.acent.font-weight-bold 4 дня 15:13:15
+                    div.d-flex.promo-form__border.p-r.pl-3.pr-3.pt-3
+                        p.commercial__type-text Зимняя распродажа до -50% на все в Снежная Королева!
+                    div.d-flex.p-3.align-items-start.flex-wrap
+                        img(src="/assets/img/discount3.png" class="commercial__type-image")
+                        div.d-flex.flex-column.ml-2
+                            p.font-weight-bold.commercial__type-text--big Подарок за покупку
+                        div.d-flex.flex-column.commercial__type-border.commercial__type-border--blue
+                            p.d-flex.flex-column.commercial__type-text--small
+                                span.font-weight-bold Дополнительные условия
+                                | Сделай покупки на сумму выше 60 000 рублей и используй промокод что бы получить скидку до 10 000 рублей
+                    a(href="#" class="commercial__type-button commercial__type-button--blue") Перейти на сайт
+                div.d-flex.theme-white.flex-column.theme-container
+                    div.pt-2.pb-2.pl-3.pr-3.d-flex.align-items-center
+                        span До конца акции
+                        img(src="/assets/img/alarm.png" class="ml-1 mr-1")
+                        span.acent.font-weight-bold 4 дня 15:13:15
+                    div.d-flex.promo-form__border.p-r.pl-3.pr-3.pt-3
+                        p.commercial__type-text Зимняя распродажа до -50% на все в Снежная Королева!
+                    div.d-flex.p-3.align-items-start.flex-wrap
+                        img(src="/assets/img/discount4.png" class="commercial__type-image")
+                        div.d-flex.flex-column.ml-2
+                            p.font-weight-bold.commercial__type-text--big Скидка 50%
+                            d.flex
+                                span.commercial__type-text--small.commercial__type-text--acent При предъявлении промокода
+                        div.d-flex.flex-column.commercial__type-border.commercial__type-border--red
+                            p.d-flex.flex-column.commercial__type-text--small
+                                span.font-weight-bold Дополнительные условия
+                                | Сделай покупки на сумму выше 60 000 рублей и используй промокод что бы получить скидку до 10 000 рублей
+                            p.d-flex.flex-column.commercial__type-text--small
+                                span.font-weight-bold Минимальная сумма
+                                | 60 000 рублей
+                    a(href="#" class="commercial__type-button commercial__type-button--red") Перейти на сайт
+                div.d-flex.theme-white.flex-column.theme-container
+                    div.pt-2.pb-2.pl-3.pr-3.d-flex.align-items-center
+                        span До конца акции
+                        img(src="/assets/img/alarm.png" class="ml-1 mr-1")
+                        span.acent.font-weight-bold 4 дня 15:13:15
+                    div.d-flex.promo-form__border.p-r.pl-3.pr-3.pt-3
+                        p.commercial__type-text Зимняя распродажа до -50% на все в Снежная Королева!
+                    div.d-flex.p-3.align-items-start.flex-wrap
+                        img(src="/assets/img/discount5.png" class="commercial__type-image")
+                        div.d-flex.flex-column.ml-2
+                            p.font-weight-bold.commercial__type-text--big Акция 2 + 1
+                        div.d-flex.flex-column.commercial__type-border.commercial__type-border--black
+                            p.d-flex.flex-column.commercial__type-text--small
+                                span.font-weight-bold Минимальная сумма
+                                | 60 000 рублей
+                    a(href="#" class="commercial__type-button commercial__type-button--black") Перейти на сайт
+                div.d-flex.theme-white.flex-column.theme-container
+                    div.pt-2.pb-2.pl-3.pr-3.d-flex.align-items-center
+                        span До конца акции
+                        img(src="/assets/img/alarm.png" class="ml-1 mr-1")
+                        span.acent.font-weight-bold 4 дня 15:13:15
+                    div.d-flex.promo-form__border.p-r.pl-3.pr-3.pt-3
+                        p.commercial__type-text Зимняя распродажа до -50% на все в Снежная Королева!
+                    div.d-flex.p-3.align-items-start.flex-wrap
+                        img(src="/assets/img/discount6.png" class="commercial__type-image")
+                        div.d-flex.flex-column.ml-2
+                            p.font-weight-bold.commercial__type-text--big Конкурс
+                        div.d-flex.flex-column.commercial__type-border.commercial__type-border--navy
+                            p.d-flex.flex-column.commercial__type-text--small
+                                span.font-weight-bold Дополнительные условия
+                                | В конкурсе могут участвовать только лица достигшие 18 лет и ииеющие художественное образование.
+                    a(href="#" class="commercial__type-button commercial__type-button--navy") Перейти на сайт
+            div.d-flex.theme-white.flex-column.theme-container.pt-4.pb-2.pl-4.pr-4.theme-shadow.mt-5.commercial__inner
+                iframe(src="https://yandex.ru/map-widget/v1/-/CSECYIj5"  height="190" frameborder="1" allowfullscreen="true" style="position:relative;width:100%")
+                div.d-flex.flex-column.promo-form__border.p-r.mt-4.pt-2
+                    p.font-weight-bold.commercial__type-text--big Контакты
+                    div.d-flex.flex-column.commercial__address-wrapper
+                        div.d-flex.justify-content-between.commercial__address
+                            div.d-flex.flex-column
+                                p.font-weight-bold.commercial__type-text Адрес1
+                                p.commercial__type-text--acent Россия, Москва, Калужско-Рижская линия, метро Ленинский проспект
+                            button.btn.commercial__address-button--show
+                                i.material-icons keyboard_arrow_down
+                            button.btn.d-none.commercial__address-button.commercial__address-button--hide
+                                i.material-icons keyboard_arrow_up
+                        div.flex-column.commercial__address-info
+                            div.d-flex.flex-column.commercial__address-icon.commercial__address-icon--time.mb-2
+                                p.font-weight-bold.commercial__type-text График работы
+                                p.commercial__type-text--acent Вс. -Чт. с 10:00 до 22:00, <br/> Пт. - Сб. с 10:00 до 23:00
+                            div.d-flex.flex-column.commercial__address-icon.commercial__address-icon--phone.mb-2
+                                p.font-weight-bold.commercial__type-text Телефоны
+                                p.commercial__type-text--acent 800-2000-600-700
+                            div.d-flex.flex-column.commercial__address-icon.commercial__address-icon--link.mb-2
+                                p.font-weight-bold.commercial__type-text Сайт
+                                a(href="goo.gl/2cSMwl") goo.gl/2cSMwl
+                - let n = 2
+                    while (n < 5)
+                        div.d-flex.flex-column.commercial__address-wrapper.promo-form__border.p-r
+                            div.d-flex.justify-content-between.commercial__address
+                                div.d-flex.flex-column
+                                    p.font-weight-bold.commercial__type-text Адрес #{n++}
+                                    p.commercial__type-text--acent Россия, Москва, Калужско-Рижская линия, метро Ленинский проспект
+                                button.btn.commercial__address-button.commercial__address-button--show
+                                    i.material-icons keyboard_arrow_up
+                                button.btn.d-none.commercial__address-button.commercial__address-button--hide
+                                    i.material-icons keyboard_arrow_down
+                            div.flex-column.d-none.commercial__address-info
+                                div.d-flex.flex-column.commercial__address-icon.commercial__address-icon--time.mb-2
+                                    p.font-weight-bold.commercial__type-text График работы
+                                    p.commercial__type-text--acent Вс. -Чт. с 10:00 до 22:00, <br/> Пт. - Сб. с 10:00 до 23:00
+                                div.d-flex.flex-column.commercial__address-icon.commercial__address-icon--phone.mb-2
+                                    p.font-weight-bold.commercial__type-text Телефоны
+                                    p.commercial__type-text--acent 800-2000-600-700
+                                div.d-flex.flex-column.commercial__address-icon.commercial__address-icon--link.mb-2
+                                    p.font-weight-bold.commercial__type-text Сайт
+                                    a(href="goo.gl/2cSMwl") goo.gl/2cSMwl
+    section.container.pl-2.pr-0
+        h1.font-weight-bold.text-white.cards__title Другие акции
+        -
+            let cards = [{type: 5, discount: false, blocked: false,src: "/assets/img/card5.png", text:"Возвращаем деньги за покупку телефона Honor V10", sale_text: 'Кешбек 10%', sale_src: '/assets/img/discount4.png',special: true, special_info: 3000},{type: 6, discount: false, blocked: false, src: "/assets/img/card6.png", text:"При покупке двух часов третьи в подарок от производителя", sale_text: 'Акция 2 + 1', sale_src: '/assets/img/discount5.png',special: true,special_info:false},
+            {type: 1, discount: 80, blocked: false, src: "/assets/img/card7.png", text:"Аренда Porshe 11 на неделю со скидкой 80% от автоцентр...", sale_text: 'Скидка до 80%', sale_src: '/assets/img/discount.png',special: false,special_info:false},
+            {type: 7, discount: false, blocked: false,src: "/assets/img/card8.png", text:"Конкурс на лучший дизайн одеждый для швей", sale_text: 'Конкурс', sale_src: '/assets/img/discount6.png', special: false,special_info:false},
+            ]
+        div.col-lg-12.card__wrapper.mt-5.pl-2.pr-2
+            each val, index in cards
+                +card(val.src,val.text,val.sale_text,val.sale_src, val.type, val.discount, val.special, val.special_info, val.blocked)
+        button.btn.card__button.font-weight-bold.pt-3.pb-3
+            | Посмотреть еще
+            i.material-icons.ml-2 cached
+
+
+
+
+
+
+
+
+
+block script
+    script(type="text/javascript").
+        (function () {
+            if (window.pluso) if (typeof window.pluso.start == "function") return;
+            if (window.ifpluso == undefined) {
+                window.ifpluso = 1;
+                var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                s.type = 'text/javascript';
+                s.charset = 'UTF-8';
+                s.async = true;
+                s.src = ('https:' == window.location.protocol ? 'https' : 'http') + '://share.pluso.ru/pluso-like.js';
+                var h = d[g]('body')[0];
+                h.appendChild(s);
+            }
+        })();
+
+    script(type='text/javascript').
+        $(document).ready(function () {
+
+            $('.coupon-modal-open').click((evt) => {
+                $(evt.target).parent().toggleClass('d-flex d-none');
+                $(evt.target).parent().parent().toggleClass('blur');
+                $(evt.target).parent().parent().find('.commercial__modal').toggleClass('d-none d-flex animated fadeIn')
+            });
+
+            $('.coupon-modal-close').click((evt) => {
+                $(evt.target).parents('.commercial__modal').toggleClass('d-flex d-none');
+
+                $(evt.target).parents('.theme-shadow').toggleClass('blur');
+                let div = $(evt.target).parents('.theme-shadow').children()[0];
+                $(div).toggleClass('d-none d-flex animated fadeIn')
+            })
+            $('.commercial__photos-btn').click((evt) => {
+                $('.commercial__photos').toggleClass('d-none d-flex fadeIn');
+            })
+
+        });

@@ -1,0 +1,388 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Добавить акцию';
+    - var description = 'Description for Webpack + Pug';
+    - var pageClass = 'add-sale-page';
+
+
+block content
+    include ../includes/modules/sub-nav
+    include ../includes/modules/categories
+    div.col-lg-12.container.grid-container.mt-5
+        section.theme-dark.theme-container.mb-3
+            //h1.font-weight-bold.promo-form__main-title Конструктор акций. Что будем запускать?
+            //div.promo-form__wrapper.d-flex.flex-wrap
+            //  ul.d-flex.flex-wrap.promo-form__types.justify-content-between
+            //      - types = [{name: 'Просто скидка', src: ''},{name: 'Купон на скидку', src: ''},{name: 'Подарок при покупке', src: ''},{name: '2 по цене 1', src: ''}, {name: '3 по цене 2', src: ''}, {name: 'Кэшбек', src: ''},{name: 'Конкурс', src: ''}]
+            //            each val,index in types
+            //              li(class=`promo-form__type ${index < 3 ? 'promo-form__type--big' : ""} `)
+            //                  input(type="radio" name="sale_type[]"  class="promo-form__input d-none" id=`sale_type${index}`)
+            //                  label(for=`sale_type${index}` class="d-flex")
+            //                    span(data-hint="Mohito (Мохито) – польский бренд модной одежды. Марка разрабатывает, отшивает и выпускает на рынки одежду для элегантных и грациозных женщин, обладающих большой внутренней силой и энергией." class="hint-top-middle-t-info-s-big hint-anim promo-form__type-hint") ?
+            //                    button(area-label=val.name class="promo-form__type-button")= val.name
+            //
+            //div.promo-form__wrapper.d-flex.justify-content-between
+            //    p.promo-form__title Какой % скидки или суммы в рублях
+            //        br
+            //        .
+            //            вы готовы предоставить?
+            //    div.d-flex.justify-content-between.flex-wrap
+            //        input(class="promo-form__input promo-form__input--shrink mr-3" placeholder="50" type="number" name="sale_size")
+            //        select(class="filter__select promo-form__select" name="")
+            //            option %
+            //            option ₽
+            //div.promo-form__wrapper.d-flex.justify-content-between
+            //    p.promo-form__title
+            //        | Если для получения скидки необходимо вводить код
+            //        span.promo-form__description
+            //            |  (например интернет-магазин), то вы можете указать его здесь.  Если ничего вводить не нужно, то оставьте поле пустым.
+            //    div.d-flex.flex-column.w-33
+            //        label(for="promocode" class="promo-form__title w-100 mb-2") Код для скидки
+            //        input(class="promo-form__input" placeholder="NJTON564YNN565N56" type="text" id="promocode" name="promocode")
+            //div.promo-form__wrapper.d-flex.justify-content-between
+            //    p.promo-form__title
+            //        | Если скидка действует при заказе от определенной суммы,
+            //        span.promo-form__description
+            //            |  то необходимо указать откакой суммы именно. Если скидка действует независимо от суммы заказа, то оставьте поле пустым.
+            //    div.d-flex.flex-column.w-33
+            //        label(for="sale_min" class="promo-form__title w-100 mb-2") Скидка действует при заказе от
+            //        input(class="promo-form__input promo-form__input--price" min="0" placeholder="1000" type="number" id="sale_min" name="sale_min")
+            //div.promo-form__wrapper.d-flex.flex-column
+            //    div.d-flex.justify-content-between
+            //        p.promo-form__title
+            //            | Если у вас есть бесплатная доставка, то вы можете отметить этот пункт.
+            //            span.promo-form__description
+            //                |  Если бесплатной доставки нет, то ничего отмечать не нужно.
+            //        label(for="sale_free-shipping" class="promo-form__title switch-wrap")
+            //            input(type="checkbox" id="sale_free-shipping")
+            //            div(class="switch")
+            //    div.d-flex.promo-form__shipping.promo-form__border.justify-content-between
+            //        p.promo-form__title.d-flex.flex-column
+            //            | Есть бесплатная доставка
+            //            span.promo-form__description Если бесплатная доставка действует при заказе от определенной суммы, то необходимо указать это здесь.
+            //        div.d-flex.flex-column.w-33
+            //            label(for="sale_shipping" class="promo-form__title w-100 mb-2") Действует при заказе от
+            //            input(class="promo-form__input promo-form__input--price" placeholder="1000" type="number" id="sale_shipping" name="sale_shipping")
+            //div.promo-form__wrapper.d-flex.flex-column
+            //    p.promo-form__title.d-flex.flex-column.w-100.mb-3
+            //        | Введите заголовок (названии акции), максимум 64 символа.
+            //        span.promo-form__description.mt-2 Лайфхак: вы можете указать в заголовке имя своего бренда (пример в строке), что поможет пользователям отслеживать все ваши акции и возможно сделает вас более узнаваемым.
+            //    input(class="promo-form__input w-100 promo-form__input--num" placeholder="Скидки до 30% в Desigual! Зарядись энергией Desigual!" type="text" id="sale_name" name="sale_name")
+            //div.promo-form__wrapper.d-flex.flex-column
+            //    div.d-flex.justify-content-between.mb-4
+            //        p.promo-form__title.d-flex.flex-column
+            //            | Загрузите фотографии в слайдер, что вы предлагаете.
+            //            span.promo-form__description Обязательна только 1 (первая) фотография, остальные по желанию.
+            //        div.promo-form__help
+            //            button(class="btn promo-form__link promo-form__link--dashed" data-toggle="modal" data-target="#photoModal") У меня нет фото, что делать?
+            //    div.d-flex.justify-content-between.flex-wrap.mb-4
+            //        div(class="promo-form__image mb-2 promo-form__image--big d-flex flex-column active")
+            //            span.promo-form__title.w-100.font-weight-bold.text-center Обложка (обязательно)
+            //            span.promo-form__description Файл не выбран
+            //            label(for=`sale_image1` class="promo-form__image-label mt-2") Выберите файл
+            //            input(id=`sale_image1` type="file" name="sale_image[]" class="d-none" required)
+            //        div(class="promo-form__image mb-2 promo-form__image--big d-flex flex-column")
+            //            span.promo-form__title.w-100.font-weight-bold.text-center Не обязательно
+            //            span.promo-form__description Файл не выбран
+            //            label(for=`sale_image2` class="promo-form__image-label mt-2") Выберите файл
+            //            input(id=`sale_image2` type="file" name="sale_image[]" class="d-none")
+            //        div(class="promo-form__image mb-2 promo-form__image--big promo-form__image--empty  d-flex flex-column")
+            //            span.font-weight-normal.promo-form__title.text-center Добавить еще место под фото
+            //    label(for="additive_photos" class="promo-form__link promo-form__link--dashed promo-form__link--big justify-content-center mb-3")
+            //        | Загрузить дополнительные фотографии
+            //        i.material-icons keyboard_arrow_down
+            //    input(id="additive_photos" class="d-none" type="checkbox")
+            //    div.d-flex.flex-column
+            //        p.promo-form__title.d-flex.flex-column.w-100.text-center.mt-3.mb-3 Дополнительные фото в карточке под спойлером (не обязательно)
+            //        div.d-flex.flex-wrap.justify-content-between
+            //            - let m = 0
+            //                while (m < 4)
+            //                    - let k = m++
+            //                    div.d-flex.flex-column.promo-form__image-wrapper.mb-2
+            //                        div(class="promo-form__image promo-form__image--small d-flex flex-column")
+            //                        button.promo-form__image-delete
+            //                            i.material-icons delete_outline
+            //                        input(id=`sale_image${k}` type="file" name="sale_image[]" class="d-none")
+            //                        label(for=`sale_image${k}` class="promo-form__image-label mt-3 mb-3") Выберите файл
+            //                        span.promo-form__description Файл не выбран
+            //            div(class="promo-form__image promo-form__image-wrapper promo-form__image--empty mb-2  d-flex flex-column")
+            //                span.font-weight-normal.promo-form__title.text-center Добавить еще место под фото
+            //div.promo-form__wrapper.d-flex.justify-content-between.flex-wrap
+            //        p.promo-form__title
+            //            | Если у вас есть видео на YouTube о том, чем вы занимаетесь
+            //            span.promo-form__description
+            //                |  или продаете, вы можете указать здесь ссылку на него.
+            //        label(for="sale_youtube" class="promo-form__title switch-wrap")
+            //            input(type="checkbox" id="sale_youtube")
+            //            div(class="switch")
+            //        div.d-flex.promo-form__video.w-100.promo-form__border
+            //            div.d-flex.flex-column.w-100
+            //                label(for="sale_video" class="promo-form__title mb-2") Ссылка на ролик
+            //                input(class="promo-form__input" placeholder="https://www.youtube.com/watch?v=4kwHJWwJxnU" type="text" id="sale_video" name="sale_video")
+            //div.promo-form__wrapper.d-flex.flex-column
+            //        p.promo-form__title.mb-4 Расскажите немного о себе или вашей компании
+            //        textarea(class="promo-form__more" name="sale_description[]" placeholder="Mohito (Мохито) – польский бренд модной одежды. Марка разрабатывает, отшивает и выпускает на рынки одежду для элегантных и грациозных женщин, обладающих большой внутренней силой и энергией. Стильная и в тоже время романтичная одежда предназначается работницам офиса и любителям активного отдыха, тем, в ком жив бунтарский дух, кто легко и грациозно ломает устоявшиеся стереотипы привычного и скучного дресс-кода, очерченного для деловых людей. Одежда этой фирмы всегда на\n" +
+            //        "гребне волны современной моды. А высокое качество и низкие цены являются очень приятным бонусом при общении с этой компанией модной одежды.")
+            //        div.d-flex.justify-content-between.promo-form__border.align-items-center.promo-form__block
+            //            p.promo-form__title.w-8
+            //                | Допополнительные условия.
+            //                span.promo-form__description
+            //                    |  Если по вашей акции есть какие-то дополнительные условия, о которых вы считаете нужным заявить - вы можете сделать это ниже. Если никаких дополнительных условий нет, то оставьте поле пустым.
+            //            label(for="sale_additive" class="promo-form__title switch-wrap")
+            //                input(type="checkbox" id="sale_additive")
+            //                div(class="switch")
+            //        div.d-flex.justify-content-between.promo-form__border.align-items-center.promo-form__block
+            //            textarea(class="promo-form__more w-100" name="sale_description[]" placeholder="Опишите свою акцию более детально, что вы продаете или предлагаете, возможно есть какие-то подарки и прочие условия.")
+            //div.promo-form__wrapper.d-flex.flex-column
+            //        div.d-flex.flex-wrap.justify-content-between
+            //            p.promo-form__title.d-flex.flex-column.w-8
+            //                | Если у вас  или вашего бизнеса есть сайт или сообщества в социальных сетях, вы можете указать ссылки на них ниже.
+            //            label(for="sale_social" class="promo-form__title switch-wrap")
+            //                input(type="checkbox" id="sale_social")
+            //                div(class="switch")
+            //        div.d-flex.promo-form__social.flex-column.promo-form__border.promo-form__block
+            //                div.d-flex.flex-wrap.social__wrapper
+            //                    - let social = [{name: 'Веб-сайт',url:''},{name: 'Электронная почта',url:''},{name: 'Вконтакте',url:''},{name: 'Instagram',url:''},{name: 'Youtube',url:''},{name: 'LinkedIn',url:''},{name: 'Одноклассники',url:''},{name: 'МойМир',url:''},{name: 'MainFace',url:''},{name: 'Twitter',url:''},{name: 'Tumblr',url:''},{name: 'Pinterest',url:''},{name: 'Foursquare',url:''},{name: 'Telegram',url:''},{name: 'WhatsUp',url:''},{name: 'Viber',url:''},{name: 'Skype',url:''}]
+            //                        each val, index in social
+            //                            input(id=`social_type${index}`  type="checkbox" class="social__switch d-none")
+            //                            label(for=`social_type${index}` class="social__button")= val.name
+            //                div.d-flex.flex-column
+            //                    each val, index in social
+            //                        div(class=`social__block mt-2 mb-2 ${(index === 0) || (index === social.length - 4) ? 'd-flex ' : 'd-none'}`)
+            //                            div.d-flex.w-6.p-r
+            //                                input(type="text" placeholder=val.name class=`promo-form__input promo-form__input--image w-100` data-index=index)
+            //                                button.btn.button-brd-left
+            //                                    i.material-icons delete_outline
+            //                            button.btn.promo-form__link.promo-form__link--dashed + еще #{val.name}
+            //div.promo-form__wrapper.d-flex.flex-column
+            //        p.promo-form__title.d-flex.flex-column
+            //            | Укажите в блоке: график работы, адрес и телефоны
+            //            span.promo-form__description
+            //                |  для одной акции можно заполнить не более 4-х блоков
+            //        div.d-flex.flex-column.promo-form__organization.mt-3
+            //            div.d-flex.justify-content-between.pb-2
+            //                p.promo-form__title.d-flex.align-items-center
+            //                    i.material-icons place
+            //                    | Организация 1
+            //                button.promo-form__delete
+            //                   i.material-icons delete_outline
+            //            div.d-flex.flex-wrap.promo-form__border.mt-2.pt-4.p-r
+            //                div.d-flex.flex-column.w-50.mb-2.pr-3
+            //                    label(for="address" class="promo-form__title mb-2") Адресс
+            //                    input(type="text" class="promo-form__input" placeholder="Москва, проспект Мира 82 корпус 1" id="address" name="address[]")
+            //                div.d-flex.flex-column.w-50.mb-2
+            //                    label(for="schedule" class="promo-form__title mb-2") График работы
+            //                    input(type="text" class="promo-form__input" placeholder="пн-сб: с 10.00 до 20.00 вс с 10.00 до" id="schedule" name="schedule[]")
+            //            div.d-flex.flex-wrap.mb-2
+            //                div.d-flex.flex-column.w-50
+            //                    label(for="phone" class="promo-form__title mb-2") Телефон
+            //                    div.d-flex.p-r.pr-3
+            //                        input(type="tel" class="promo-form__input w-100" placeholder="+7 (000) 000-00-00" id="phone" name="phone[]")
+            //                        button.btn.button-brd-left.mr-3
+            //                            i.material-icons delete_outline
+            //                button.btn.promo-form__link.promo-form__link--dashed.d-flex.align-items-end + ещё телефон
+            //        button.btn.mt-3.promo-form__link.d-flex.justify-content-center.promo-form__link--dashed.promo-form__link--big Добавить еще организацию
+            //div.promo-form__wrapper.d-flex.flex-column
+            //            div.d-flex.justify-content-between
+            //                p.promo-form__title.d-flex.flex-column.w-8
+            //                    | Если ваша акция доступна только в определенные дни и часы.
+            //                    span.promo-form__description Общий отсчет времени до конца акции не  прекратится, она так же будет находится на сайте, но пользователи смогут перейти в нее только в указанные вами дни и часы.
+            //                label(class="promo-form__title switch-wrap")
+            //                    input(type="checkbox")
+            //                    div(class="switch")
+            //            div.d-flex.promo-form__schedule.flex-wrap.mt-3.promo-form__border.p-r.pt-3
+            //                div.d-flex.align-items-center.mb-3
+            //                    input(type="checkbox" id="sale_days" class="d-none")
+            //                    label(class="promo-form__title d-flex mr-3 align-items-center" for="sale_days")
+            //                        span.promo-form__checkbox.mr-3
+            //                        span Акция доступна в
+            //                    div.d-flex
+            //                        - let days = ['пн','вт','ср','чт','пт','сб','вс']
+            //                            each val,index in days
+            //                                input(type="checkbox" class="d-none" checked=(index === 3 || index === 1 ) id=`day${index + 1}`)
+            //                                label(class="checkbox" for=`day${index + 1}`)= val
+            //                div.d-flex.align-items-center.mb-3
+            //                    input(type="checkbox" id="sale_time" class="d-none")
+            //                    label(class="promo-form__title d-flex mr-3 align-items-center" for="sale_time")
+            //                        span.promo-form__checkbox.mr-3
+            //                        span Акция доступна с
+            //                    div.d-flex.align-items-center.justify-content-center
+            //                        input(type="number" class="time-input" placeholder="00" name="hours_start" min="0" max="23")
+            //                        span.ml-1.mr-1 :
+            //                        input(type="number" class="time-input" placeholder="00" name="minutes_start" min="0" max="60")
+            //                        span.ml-2.mr-1 -
+            //                        span.mr-2.ml-1 до
+            //                        input(type="number" class="time-input" placeholder="00" name="hours_end" min="0" max="23")
+            //                        span.ml-1.mr-1 :
+            //                        input(type="number"  class="time-input" placeholder="00" name="minutes_end" min="0" max="60")
+            //div.promo-form__wrapper.d-flex.flex-column
+            //            label(class="promo-form__title w-100 mb-3 d-flex flex-column" for="city")
+            //                | Укажите город(а) (не более 20), в котором будет проходить ваша акция.
+            //            input(type="text" class="promo-form__input" placeholder="Укажите город" id="city")
+            //            div.d-flex.flex-wrap.mt-3
+            //                label(for="city1" class="promo-form__city selected__button mr-2")
+            //                   span Москва
+            //                   button.btn.button-brd-left.button-brd-left--white
+            //                        i.material-icons.text-white delete_outline
+            //                input(type="checkbox" selected class="d-none" id="city1")
+            //                label(for="city2" class="promo-form__city selected__button mr-2")
+            //                    span Санкт-Петербург
+            //                    button.btn.button-brd-left.button-brd-left--white
+            //                        i.material-icons.text-white delete_outline
+            //                input(type="checkbox" selected class="d-none" id="city2")
+            //div.promo-form__wrapper.d-flex.flex-column
+            //            p.promo-form__title.d-flex.flex-column
+            //                | Выберите категории, к которым будет прикреплена ваша акция.
+            //            div.d-flex.p-r.promo-form__category-wrapper.mt-4
+            //                - let services = ['Кафе/Бары','Для неё','Для него','Детям','Для дома','Техника','Услуги','Красота','Туры и отели','Магазины','Для авто','Курсы','Репетиторы']
+            //                - let services2 = [{name: "Грузоперевозки", count: 1929},{name: "Фото, видео, аудио", count: 1200},{name: "Свадьба и торжества", count:985},{name: "Все для красоты",count: 136},{name: "Врачи", count: 789},{name: "ИТ-Фрилансеры", count: 657},{name: "Ремонт и стройка", count: 369},{name: "Для авто",count: 321},{name: "Бухгалтеры и юристы", count:129},{name: "Ветеринары", count: 225},{name: "Автоконструкторы",count:980},{name: "Домашний персонал", count: 412},{name: "Уборка", count: 302}]
+            //                    ul.promo-form__category
+            //                        each val,index in services
+            //                            li= val
+            //                                i.material-icons keyboard_arrow_right
+            //                    ul.promo-form__category.promo-form__category--hover.d-none
+            //                        each val in services2
+            //                            li= val.name
+            //                                i.material-icons keyboard_arrow_right
+            //                    ul.promo-form__category.promo-form__category--wide.promo-form__category--hover.d-none
+            //                        each val, index in services2
+            //                            li.d-flex
+            //                                input(type="checkbox" id=`type${index}` class="d-none")
+            //                                label(for=`type${index}` class="d-flex w-100")
+            //                                    span.promo-form__checkbox.mr-3
+            //                                    span= val.name
+            //                                i.material-icons keyboard_arrow_right
+            //                    ul.promo-form__category.promo-form__category--wide.promo-form__category--hover.d-none
+            //                        each val, index in services2
+            //                            li.d-flex
+            //                                input(type="checkbox" id=`type3_${index}` class="d-none")
+            //                                label(for=`type3_${index}` class="d-flex w-100")
+            //                                    span.promo-form__checkbox.mr-3
+            //                                    span= val.name
+            //                                i.material-icons keyboard_arrow_right
+            //            p.promo-form__title.d-flex.flex-column.mt-3.mb-3
+            //                | Вы выбрали
+            //            div.d-flex.flex-wrap
+            //                input(type="checkbox" id="selected_type1" class="d-none")
+            //                label(for="selected_type1" class="promo-form__category-item  selected__button mb-2 mr-3")
+            //                    |Расширение дверного проёма
+            //                    button.btn.button-brd-left.button-brd-left--white
+            //                        i.material-icons.text-white delete_outline
+            //                input(type="checkbox" id="selected_type2" class="d-none")
+            //                label(for="selected_type2" class="promo-form__category-item  selected__button mb-2 mr-3")
+            //                    |Регулировка дверей
+            //                    button.btn.button-brd-left.button-brd-left--white
+            //                        i.material-icons.text-white delete_outline
+            //                input(type="checkbox" id="selected_type3" class="d-none")
+            //                label(for="selected_type3" class="promo-form__category-item  selected__button mb-2 mr-3")
+            //                    | Ремонт доводчиков
+            //                    button.btn.button-brd-left.button-brd-left--white
+            //                        i.material-icons.text-white delete_outline
+            //                input(type="checkbox" id="selected_type4" class="d-none")
+            //                label(for="selected_type4" class="promo-form__category-item  selected__button mb-2 mr-3")
+            //                    | Декоративно-прикладные работы (13 категорий)
+            //                    button.btn.button-brd-left.button-brd-left--white
+            //                        i.material-icons.text-white delete_outline
+            //div.promo-form__wrapper.d-flex
+            //            p.promo-form__title.d-flex.flex-column
+            //                | На какое количество дней будет запущена акция?
+            //                span.promo-form__description Максимум 30 дней.
+            //            div.d-flex.justify-content-between.w-4
+            //                input(type="range" class="w-8" min="0" max="30" id="")
+            //                input(type="text" class="promo-form__input time-input")
+            //div.promo-form__wrapper.d-flex.justify-content-between
+            //            p.promo-form__title.d-flex
+            //                | Желаете чтобы ваша акция так же появлялась и в баннере на главной странице сайта?
+            //            div.d-flex
+            //                span.font-weight-bold.promo-form__label.promo-form__label--unchecked.mr-2 Нет
+            //                label(class="promo-form__title switch-wrap")
+            //                    input(type="checkbox")
+            //                    div(class="switch")
+            //                span.font-weight-bold.promo-form__label.promo-form__label--checked.ml-2 Да, желаю
+            //div.promo-form__wrapper.d-flex.flex-column
+            //            div.d-flex.justify-content-between.align-items-center
+            //                p.promo-form__title.d-flex
+            //                    | Дополнительные опции (только для Экспертов)
+            //                button.btn.promo-form__link.promo-form__link--dashed.promo-form__link--big.pr-0 подробнее об эксперт-аккаунтах
+            //            div.d-flex.justify-content-between.promo-form__border.mt-2.pt-3.p-r.pb-2
+            //                div.d-flex
+            //                    label
+            //                        |Поднимать акцию на первое место каждые
+            //                        input(type="number" placeholder="0" name="sale_upp_hours" class="promo-form__input time-input ml-2 mr-2 promo-form__input--blur")
+            //                        | часа
+            //                label(class="switch-wrap")
+            //                    input(type="checkbox")
+            //                    div(class="switch")
+            //            div.d-flex.justify-content-between.promo-form__border.mt-2.pt-3.p-r.pb-2
+            //                div.d-flex
+            //                    label
+            //                        | Автоматически перезапускать акцию после завершениея на
+            //                        input(type="number" placeholder="0" class="promo-form__input promo-form__input--blur ml-2 mr-2 time-input")
+            //                        | дней
+            //                label(class="switch-wrap")
+            //                    input(type="checkbox")
+            //                    div(class="switch")
+            //div.promo-form__footer
+            //            div.promo-form__prices.mb-3
+            //                div.d-flex.flex-column
+            //                    span.promo-form__price-text Ваш баланс
+            //                    span.promo-form__price 100 000 руб.
+            //                div.d-flex.flex-column
+            //                    span.promo-form__price-text Стоимость акции составит
+            //                    span.promo-form__price 594 руб.
+            //                a(href="#" target="blank" class="promo-form__price-button")
+            //                    i.material-icons visibility
+            //                    | Предпросмотр ации
+            //                input(type="checkbox" id="agreement" class="d-none" checked=true)
+            //                label(for="agreement" class="promo-form__price-label d-flex")
+            //                    span.promo-form__price-checkbox.mr-3
+            //                    span С условиями пользования сервисом и стоимостью ознакомлен и полностью согласен
+            //                a(href="#" class="promo-form__price-button promo-form__price-button--middle")
+            //                    i.material-icons folder
+            //                    | Сохранить как черновик
+            //            button.btn.promo-form__price-button.w-100.promo-form__price-button--big Запустить акцию
+            div(id="vuePromo")
+            div(class="modal fade photo-modal" tabindex="-1" role="dialog" id="photoModal" aria-labelledby="photoModal" aria-hidden="true")
+                div(class="modal-dialog" role="document")
+                    div(class="modal-content photo-modal__content")
+                        div(class="modal-header photo-modal__header")
+                            h5(class="photo-modal__title") У меня нет фото, что делать?
+                            button(type="button" class="photo-modal__close close" data-dismiss="modal" aria-label="Close")
+                                span(aria-hidden="true") &times;
+                        div.photo-modal__wrapper
+                            div(class="modal-body")
+                                p.photo-modal__subtitle Вы можете воспользоваться сервисом "Google Картинки" и поискать изображения там. Важным параметром является то, что изображение  должно быть не менее 800x600 пикселей
+                                div.d-flex.flex-column
+                                    p.font-weight-bold.photo-modal__subtitle Ниже мы сделали несколько примеров:
+                                    div.d-flex.flex-wrap
+                                        a(class="photo-modal__link" target="_blank" href="https://ru.freepik.com/free-photos-vectors/%D0%B0%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D1%87%D0%B0%D1%81%D1%82%D0%B5%D0%B9") Запчасти
+                                        a(class="photo-modal__link" target="_blank" href="https://ru.freepik.com/free-photos-vectors/%D0%BE%D0%B4%D0%B5%D0%B6%D0%B4%D0%B0") Одежда
+                                        a(class="photo-modal__link" target="_blank" href="https://ru.freepik.com/search?dates=any&amp;format=search&amp;page=1&amp;query=%D0%A0%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BE%D0%B2") Ремонт компьютеров
+                                        a(class="photo-modal__link" target="_blank" href="https://ru.freepik.com/search?dates=any&amp;format=search&amp;premium=1&amp;query=%D0%AE%D1%80%D0%B8%D0%B4%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C&amp;selection=1&amp;sort=popular") Юридическая помощь
+                                        a(class="photo-modal__link" target="_blank" href="https://ru.freepik.com/search?dates=any&amp;format=search&amp;page=1&amp;premium=1&amp;query=SPA&amp;selection=1&amp;sort=popular") SPA процедуры
+                                        a(class="photo-modal__link" target="_blank" href="https://ru.freepik.com/search?dates=any&amp;format=search&amp;page=1&amp;premium=1&amp;query=%D0%A1%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F&amp;selection=1&amp;sort=popular") Стоматология
+                                        a(class="photo-modal__link" target="_blank" href="https://ru.freepik.com/search?dates=any&amp;format=search&amp;page=1&amp;query=%D0%BC%D0%B5%D0%B1%D0%B5%D0%BB%D1%8C&amp;selection=1&amp;sort=popular") Мебель
+                                        a(class="photo-modal__link" target="_blank" href="https://ru.freepik.com/search?dates=any&amp;format=search&amp;page=1&amp;query=%D1%81%D0%B0%D1%83%D0%BD%D0%B0&amp;selection=1&amp;sort=popular") Сауны
+                                        a(class="photo-modal__link" target="_blank" href="https://ru.freepik.com/search?dates=any&amp;format=search&amp;page=1&amp;query=%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80&amp;selection=1&amp;sort=popular") Маникюр
+                                        a(class="photo-modal__link" target="_blank" href="https://www.google.ru/search?q=%D1%88%D1%83%D0%B3%D0%B0%D1%80%D0%B8%D0%BD%D0%B3&amp;newwindow=1&amp;hl=ru&amp;tbm=isch&amp;source=lnt&amp;tbs=isz:l&amp;sa=X&amp;ved=0ahUKEwiCvo260bDkAhWsw8QBHT6XAjIQpwUIIw&amp;biw=1920&amp;bih=969&amp;dpr=1") Шугаринг
+                                    p.photo-modal__text.photo-modal__text--light Вашего товара нет в примерах? Ничего страшного, просто откройте любой пример и измените ключевое слово запроса или нажмите на кнопку ниже.
+                                    button(class="btn photo-modal__button") Нет примеров
+                            div
+                                p.photo-modal__text
+                                    span.font-weight-bold Остались вопросы?
+                                    |  Посетите наш раздел
+                                    a(href="#")
+                                        |  'GM Справка'
+                                    |  в котором можно найти различную полезную информацию или же увидеть те задачи, над которыми мы работаем в данный момент.
+
+        include ../includes/modules/left-menu
+
+
+
+
+block script
+    script(type='text/javascript').
+        $(document).ready(function () {
+            //$('.filter__select').niceSelect();
+        })

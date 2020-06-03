@@ -8,16 +8,17 @@ mixin link(href, name)
   a(class!=attributes.class href=href)= name
 
 mixin categories(src,text)
-  div(class="col-4 col-md-1 d-flex flex-column justify-content-between align-items-center category__link pl-md-0 pr-md-0 pl-xl-3 pr-xl-3" data-index=src + 1)
-    div.col-lg-8.d-flex.flex-column.justify-content-center.align-items-center.p-0
-      img(src=`/assets/img/cat${src + 1}.png` class="w-lg-100")/
-    p.text-center.text-white.font-weight-bold= text
+  div(class="col-4 col-sm-2 col-md-1 d-flex flex-column justify-content-between align-items-center category__link pl-md-0 pr-md-0 pl-xl-1 pr-xl-1 pb-3" data-index=src + 1)
+    //div.col-lg-8.d-flex.flex-column.justify-content-center.align-items-center.p-0.category__item
+     // img(src=`/assets/img/cat${src + 1}.png` class="w-lg-100")/
+    p.text-center.text-white.font-weight-bold.pt-4= text
     div.arrow-up
 
 mixin category(name, count, index, sub, array)
-    div.d-flex.d-md-none.category__mobile
-        ul.d-flex.col-lg-12
-            li(class="col-lg-12 d-flex flex-wrap pt-2 pb-2 bg-light category-dropdown justify-content-between" href="#")= name
+    div.d-flex.d-md-none.category__mobile.bg-light
+        ul.d-flex.col-lg-12.pt-3
+            li(class="col-lg-12 d-flex flex-wrap pt-2 pb-2  category-dropdown justify-content-between")
+              a(href="#")= name
               span.font-weight-bold.category__count= count
               ul.dl-submenu.d-none.pt-2.pb-2.pl-3.col-12
                       each val, index in array
@@ -39,8 +40,8 @@ mixin loop_categories(categories, subcategories)
         each val, index in subcategories
           +category(val, 5, index + 1, 2)
 
-mixin card(src, text, sale_text, sale_src, type, discount, special, special_info, blocked)
-  article(class=`card pl-0 ${blocked ? "card--blocked" : ''} pr-0 mr-2` style="background-image:url('"+ src + "')")
+mixin card(src, text, sale_text, sale_src, type, discount, special, special_info, blocked,index = 0)
+  article(class=`card pl-0 ${blocked ? "card--blocked" : ''} pr-0  mr-lg-0` style="background-image:url('"+ src + "')")
     if special
       if special_info
         div.card__special
@@ -61,10 +62,49 @@ mixin card(src, text, sale_text, sale_src, type, discount, special, special_info
     p.p-4.card__text= text
     div.pl-4.pr-4.pt-3.pb-3.d-flex.align-items-center.card__sale.justify-content-between
       span.font-weight-bold.card__text.card__text--big= sale_text
-      img(src=sale_src class="card__sale-img")
+      if [1,5,8].includes(index)
+        img(src=sale_src class="card__sale-img--wide")
+      else
+        img(src=sale_src class="card__sale-img")
     div.card__blocked
       img(src="/assets/img/clock.png")
       if blocked
         p.mt-3 Акция недоступна с #{blocked.start} до #{blocked.end}
       else
         p.mt-3 Акция недоступна с 12:00 до 18:00
+
+
+mixin sale_card(img, text, percantage, index)
+  div(class=`sale__card pt-4 pb-2 ${index === 1 ? 'sale__card--2-cols' : ''}`)
+    div.sale__header.pb-4
+      img(src=`assets/img/${img}` class="sale__image")
+    div.sale__body.pt-4
+      span.sale__text= text
+      p.sale__size
+        | Кэшбек до
+        span.sale__percentage #{percantage} %
+      a(href="#" class="sale__link")
+        button.sale__link-button
+          i.material-icons favorite_border
+        span.sale__link-text В магазин
+          i.material-icons chevron_right
+      a(href="#" class="sale__more") Подробнее
+
+mixin coupon(img,time, text,coupon)
+  div.coupon.pt-4
+    div.coupon__header.sale__header.pb-4
+      img(src=`assets/img/${img}` class="sale__image")
+    div.coupon__body.sale__body.pb-3
+      div.coupon__time.pt-2.pb-2
+        span.coupon__time-text
+          i.material-icons restore
+          |Осталось #{time}
+      span.coupon__text.pt-3= text
+    div.coupon__footer.pb-2
+      if coupon
+        span.coupon__value Код купона: #{coupon}
+      else
+        span.coupon__value Промо код не требуется
+      a(href="#" class="sale__link")
+        span.sale__link-text В магазин
+          i.material-icons chevron_right

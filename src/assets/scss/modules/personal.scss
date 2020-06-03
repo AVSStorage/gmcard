@@ -1,0 +1,114 @@
+.personal {
+  &__wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+    padding: 15px;
+    border: 1px solid #d9e8f8;
+  }
+
+
+  &__title {
+    font-size: 30px;
+    color: #152041;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  &__image {
+    justify-self: center;
+
+    &-wrapper {
+      position: relative;
+
+    }
+
+
+  }
+
+  &__brand {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    z-index: 1;
+  }
+  &__subtitle {
+    font-size: 23px;
+    color: #152041;
+
+    a {
+      margin-left: 20px;
+    }
+  }
+
+  &__text {
+    font-size: 15px;
+    &--accent {
+      color: #0066cc;
+    }
+
+    &--underline {
+    text-decoration: underline;
+  }
+
+    &--image {
+      background-image: url("../../assets/img/average.png");
+      background-repeat: no-repeat;
+      padding-left: 30px;
+    }
+  }
+
+  &__balance {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-top: 1px solid #d9e8f8;
+    border-bottom: 1px solid #d9e8f8;
+  }
+  &__info {
+    table-layout: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+    tr {
+      display: flex;
+    }
+
+    td {
+      margin-right: 5px;
+    }
+  }
+
+  &__button {
+    align-self: start;
+    border-radius: 8px;
+    padding: 13px 33px;
+    margin-top: 20px;
+    background-color: #0066cc;
+    color: #ffffff;
+  }
+}
+
+@media (min-width: 991px) {
+  .personal {
+    &__wrapper {
+      grid-template-columns: 1fr 1.5fr 0.5fr;
+      column-gap: 3%;
+      padding: 30px;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .personal {
+    &__title {
+      font-size: 45px;
+      text-align: start;
+    }
+
+    &__subtitle {
+      font-size: 28px;
+    }
+  }
+
+
+}
